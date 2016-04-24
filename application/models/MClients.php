@@ -41,9 +41,9 @@ class MClients extends CI_Model
             'address'=>$this->input->post('address'),
             'email'=>$this->input->post('email'),
             'company'=>$this->input->post('company'),
-            'invalid_id'=>'0'
+            'invalid_id'=>'0',
+            'recorder'=>$this->input->post('myselect')
         );
-        echo $this->input->post('myselect');
 
         return $this->db->insert('clients',$data);
     }

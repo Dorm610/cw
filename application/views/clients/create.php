@@ -1,41 +1,14 @@
-<nav class="navbar navbar-default navbar-inverse navbar-fixed-top" role="navigation">
-    <div class="container-fluid">
-        <div class="navbar-header">
-            <button type="button" class="navbar-toggle collapsed" data-toggle="collapse"
-                    data-target="#navbar-collapse1">
-                <span class="sr-only">Toggle navigation</span>
-                <span class="icon-bar"></span>
-                <span class="icon-bar"></span>
-                <span class="icon-bar"></span>
-            </button>
-            <a class="navbar-brand" href="#">超级矿资源</a>
-        </div>
 
-        <div class="collapse navbar-collapse" id="navbar-collapse1">
-            <ul class="nav navbar-nav">
-                <li><a href="clients/">首页</a></li>
-                <li class="active"><a>功能</a></li>
-                <li><a>设置</a></li>
-            </ul>
-            <form class="navbar-form navbar-right" role="search">
-                <div class="form-group">
-                    <input type="text" class="form-control" placeholder="用户名...">
-                    <input type="password" class="form-control" placeholder="密码...">
-                </div>
-                <button type="submit" class="btn btn-default">登陆</button>
-            </form>
-        </div>
-    </div>
-</nav>
 <div class="container-fluid">
     <div class="row">
         <div class="col-sm-2 col-md-1 sidebar">
             <ul class="nav nav-sidebar">
-                <li class="active"><a href="#">创建用户</a></li>
-                <li><a href="#">查询用户</a></li>
-                <li><a href="#">修改用户</a></li>
-                <li><a href="#">发布业务</a></li>
-                <li><a href="#">查询业务</a></li>
+                <li><a href="<?php echo site_url('clients'); ?>">首页</a></li>
+                <li class="active"><a href="<?php echo site_url('clients/create'); ?>">创建用户</a></li>
+                <li><a href="<?php echo site_url('clients'); ?>">查询用户</a></li>
+                <li><a href="<?php echo site_url('clients'); ?>">修改用户</a></li>
+                <li><a href="<?php echo site_url('clients'); ?>">发布业务</a></li>
+                <li><a href="<?php echo site_url('clients'); ?>">查询业务</a></li>
             </ul>
         </div>
         <div class="col-sm-10 col-sm-offset-2 col-md-11 col-md-offset-1 main">
@@ -50,9 +23,15 @@
                         <?php echo form_open('clients/create'); ?>
                         <label for="inputer" class="control-label">创建人：</label>
                         <select name="myselect" id="inputer">
-                            <option value="name1" <?php echo  set_select('myselect', '1', TRUE); ?> >One</option>
-                            <option value="name2" <?php echo  set_select('myselect', '2'); ?> >Two</option>
-                            <option value="name3" <?php echo  set_select('myselect', '3'); ?> >Three</option>
+                            <option value="刘宝键" <?php echo  set_select('myselect', '1', TRUE); ?> >刘宝键</option>
+                            <option value="刘启梦" <?php echo  set_select('myselect', '2'); ?> >刘启梦</option>
+                            <option value="王泉森" <?php echo  set_select('myselect', '3'); ?> >王泉森</option>
+                            <option value="王端阳" <?php echo  set_select('myselect', '4'); ?> >王端阳</option>
+                            <option value="任祯" <?php echo  set_select('myselect', '5'); ?> >任祯</option>
+                            <option value="刘宣" <?php echo  set_select('myselect', '6'); ?> >刘宣</option>
+                            <option value="李拥政" <?php echo  set_select('myselect', '7'); ?> >李拥政</option>
+                            <option value="荀辰龙" <?php echo  set_select('myselect', '8'); ?> >荀辰龙</option>
+                            <option value="王超一" <?php echo  set_select('myselect', '9'); ?> >王超一</option>
                         </select>
                         <div class="control-group">
                             <!-- Search input-->
@@ -108,10 +87,11 @@
                             <label for="inputCompany" class="control-label">公司名：</label>
                             <input type="text" placeholder="请输入公司名..." class="form-control" name="company"
                                    id="inputCompany">
-                            <p class="help-block">请正确输入用户的公司名</p>
+                            <p class="help-block">请正确输入用户的公司/企业/厂矿名</p>
                         </div>
                         <button type="submit" name="submit" class="btn btn-default">创建</button>
                     </div>
                     </form>
                 </div>
+            </div>
             </div>

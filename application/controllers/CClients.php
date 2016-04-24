@@ -70,7 +70,9 @@ class CClients extends CI_Controller
             $this->load->view('footer',$data);
         }else{
             $this->mClients->set_clients(); //保存数据
+            $this->load->view('header',$data);
             $this->load->view('clients/success'); //跳转页面
+            $this->load->view('footer',$data);
         }
 
     }
