@@ -16,7 +16,7 @@
     <!-- Title and other stuffs -->
     <title>超级矿资源</title>
     <!--	这句必须加，否则ci会定位不到css和js文件-->
-    <base href = "<?php echo base_url();?>"/>
+    <base href = "<?php echo $base_url;?>"/>
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <link href="css/bootstrap.min.css" rel="stylesheet">
 

@@ -54,11 +54,13 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 //$route['translate_uri_dashes'] = FALSE;
 
 
-$route['clients/create'] = 'cclients/create';
+$route['clients/create'] = 'CClients/create';
 
-$route['clients/(:any)'] = 'cclients/view/$1';
-$route['clients'] = 'cclients';
+$route['clients/(:any)'] = 'CClients/view/$1';
+$route['clients'] = 'CClients';
 
 
-$route['default_controller'] = 'pages/view';
-$route['(:any)'] = 'pages/view/$1';
+$route['default_controller'] = 'CClients';
+//$route['(:any)'] = 'cclients/view/$1';
+//$route['default_controller'] = 'pages/view';
+//$route['(:any)'] = 'pages/view/$1';

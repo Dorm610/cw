@@ -22,6 +22,8 @@ class Welcome extends CI_Controller {
 	{
 		// print_r($_POST['']);
 
+		$data['base_url']=base_url();
+
 		$this->load->model('clientdal');
 		$InfoList = $this->clientdal->GetClientList();
 		print_r($InfoList);
