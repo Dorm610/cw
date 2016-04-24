@@ -36,7 +36,7 @@
     <div class="row">
         <div class="col-sm-2 col-md-1 sidebar">
             <ul class="nav nav-sidebar">
-                <li class="active"><a href="#">创建用户</a></li>
+                <li class="active"><a href="clients/create">创建用户</a></li>
                 <li><a href="#">查询用户</a></li>
                 <li><a href="#">修改用户</a></li>
                 <li><a href="#">发布业务</a></li>
@@ -52,7 +52,7 @@
                     </div>
                     <div class="panel-body">
                         <div class="alert alert-success" role="alert">
-                            <strong>创建</strong>用户成功!<a href="create" class="pull-right">继续创建</a>
+                            <strong>创建</strong>用户成功!<a href="clients/create" class="pull-right">继续创建</a>
                         </div>
                     </div>
                 </div>
