@@ -1,6 +1,6 @@
 <div class="container-fluid">
     <div class="row">
-        <div class="col-sm-2 col-md-1 sidebar">
+        <div class="col-xs-3 col-sm-2 col-md-1 sidebar">
             <ul class="nav nav-sidebar">
                 <li><a href="<?php echo site_url('clients'); ?>">首页</a></li>
                 <li><a href="<?php echo site_url('clients/create'); ?>">创建用户</a></li>
@@ -10,7 +10,7 @@
                 <li><a href="<?php echo site_url('clients'); ?>">查询业务</a></li>
             </ul>
         </div>
-        <div class="col-sm-10 col-sm-offset-2 col-md-11 col-md-offset-1 main">
+        <div class="col-xs-9 col-xs-offset-3 col-sm-10 col-sm-offset-2 col-md-11 col-md-offset-1 main">
             <h2><?php echo $client['name'] ?> 的详细信息：</h2>
             <table class="table table-hover">
                 <thead>
