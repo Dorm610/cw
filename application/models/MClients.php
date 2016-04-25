@@ -31,7 +31,6 @@ class MClients extends CI_Model
 
 //        $name = url_title($this->input->post('name'),'dash',true);
 
-
         $data=array(
             'name'=>$this->input->post('name'),
             'wx_id'=>$this->input->post('wx_id'),
@@ -46,6 +45,19 @@ class MClients extends CI_Model
         );
 
         return $this->db->insert('clients',$data);
+    }
+
+    public function exist_clients(){
+        $query = $this->db->get_where('clients',array('wx_id'=>$this->input->post('wx_id')));
+        if ($query->num_rows() > 0) {
+            return true;
+        }else
+            return false;
+    }
+
+    public function getClient_wx($wx_id){
+        $query = $this->db->get_where('clients',array('wx_id'=>$wx_id));
+        return $query->row_array();
     }
 
 }

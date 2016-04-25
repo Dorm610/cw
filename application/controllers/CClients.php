@@ -58,6 +58,7 @@ class CClients extends CI_Controller
         $data['title']='Create a new client';
         $data['base_url']=base_url();
         // 为表单设置验证规则，如果不填，数据库值为''，而不是NULL
+        $this->form_validation->reset_validation();
         $this->form_validation->set_rules('name','Name','required');
 //        $this->form_validation->set_rules('wx_name','WeiXin Name');
 //        $this->form_validation->set_rules('qq','QQ Number');
@@ -69,10 +70,52 @@ class CClients extends CI_Controller
             $this->load->view('clients/create');
             $this->load->view('footer',$data);
         }else{
-            $this->mClients->set_clients(); //保存数据
+            if ($this->mClients->exist_clients())
+            {
+                $data['exist'] = 'create_exist';
+                $this->load->view('header', $data);
+                $this->load->view('clients/exist', $data);
+                $this->load->view('footer', $data);
+            }else {
+                $this->mClients->set_clients(); //保存数据
+                $this->load->view('header', $data);
+                $this->load->view('clients/success'); //跳转页面
+                $this->load->view('footer', $data);
+            }
+        }
+
+    }
+
+    public function search(){
+        $this->load->helper('form');
+        $this->load->library('form_validation');
+
+        $data['title']='Search a new client';
+        $data['base_url']=base_url();
+        // 为表单设置验证规则，如果不填，数据库值为''，而不是NULL
+        $this->form_validation->reset_validation();
+        $this->form_validation->set_rules('wx_id','Wx_id','required');
+//        $this->form_validation->set_rules('wx_name','WeiXin Name');
+//        $this->form_validation->set_rules('qq','QQ Number');
+//        $this->form_validation->set_rules('phone','Phone Number');
+        if ($this->form_validation->run() === false){
+            //验证不通过，重新载入
             $this->load->view('header',$data);
-            $this->load->view('clients/success'); //跳转页面
+            $this->load->view('clients/search');
             $this->load->view('footer',$data);
+        }else{
+            if ($this->mClients->exist_clients())
+            {
+                $data['exist'] = 'search_exist';
+                $this->load->view('header', $data);
+                $this->load->view('clients/exist', $data);
+                $this->load->view('footer', $data);
+            }else {
+                $data['exist'] = 'search_noexist';
+                $this->load->view('header', $data);
+                $this->load->view('clients/exist', $data); //跳转页面
+                $this->load->view('footer', $data);
+            }
         }
 
     }

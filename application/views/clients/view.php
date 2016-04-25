@@ -4,7 +4,7 @@
             <ul class="nav nav-sidebar">
                 <li><a href="<?php echo site_url('clients'); ?>">首页</a></li>
                 <li><a href="<?php echo site_url('clients/create'); ?>">创建用户</a></li>
-                <li class="active"><a href="<?php echo site_url('clients'); ?>">查询用户</a></li>
+                <li class="active"><a href="<?php echo site_url('clients/search'); ?>">查询用户</a></li>
                 <li><a href="<?php echo site_url('clients'); ?>">修改用户</a></li>
                 <li><a href="<?php echo site_url('clients'); ?>">发布业务</a></li>
                 <li><a href="<?php echo site_url('clients'); ?>">查询业务</a></li>
