@@ -77,6 +77,7 @@ class CClients extends CI_Controller
                 $this->load->view('clients/exist', $data);
                 $this->load->view('footer', $data);
             }else {
+                $data['success'] = 'create';
                 $this->mClients->set_clients(); //保存数据
                 $this->load->view('header', $data);
                 $this->load->view('clients/success'); //跳转页面
@@ -116,6 +117,33 @@ class CClients extends CI_Controller
                 $this->load->view('clients/exist', $data); //跳转页面
                 $this->load->view('footer', $data);
             }
+        }
+
+    }
+
+    public function modify($wx_id=''){
+        $this->load->helper('form');
+        $this->load->library('form_validation');
+        $data['title']='Modify a new client';
+        $data['base_url']=base_url();
+        // 为表单设置验证规则，如果不填，数据库值为''，而不是NULL
+        $this->form_validation->reset_validation();
+        $this->form_validation->set_rules('name','Name','required');
+//        $this->form_validation->set_rules('wx_name','WeiXin Name');
+//        $this->form_validation->set_rules('qq','QQ Number');
+//        $this->form_validation->set_rules('phone','Phone Number');
+        if ($this->form_validation->run() === false){
+            //验证不通过，重新载入
+            $data['wx_id'] = $wx_id;
+            $this->load->view('header',$data);
+            $this->load->view('clients/modify', $data);
+            $this->load->view('footer',$data);
+        }else{
+            $data['success'] = 'modify';
+            $this->mClients->modifyClient(); //保存数据
+            $this->load->view('header', $data);
+            $this->load->view('clients/success'); //跳转页面
+            $this->load->view('footer', $data);
         }
 
     }

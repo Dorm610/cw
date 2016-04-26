@@ -3,10 +3,10 @@
     <div class="row">
         <div class="col-xs-3 col-sm-2 col-md-1 sidebar">
             <ul class="nav nav-sidebar">
-                <li class="active"><a href="<?php echo site_url('clients'); ?>">首页</a></li>
+                <li><a href="<?php echo site_url('clients'); ?>">首页</a></li>
                 <li><a href="<?php echo site_url('clients/create'); ?>">创建用户</a></li>
                 <li><a href="<?php echo site_url('clients/search'); ?>">查询用户</a></li>
-                <li><a href="<?php echo site_url('clients'); ?>">修改用户</a></li>
+                <li><a href="<?php echo site_url('clients/search'); ?>">修改用户</a></li>
                 <li><a href="<?php echo site_url('clients'); ?>">发布业务</a></li>
                 <li><a href="<?php echo site_url('clients'); ?>">查询业务</a></li>
             </ul>

@@ -13,7 +13,7 @@
                 <li><a href="<?php echo site_url('clients'); ?>">首页</a></li>
                 <li><a href="<?php echo site_url('clients/create'); ?>">创建用户</a></li>
                 <li><a href="<?php echo site_url('clients/search'); ?>">查询用户</a></li>
-                <li><a href="<?php echo site_url('clients'); ?>">修改用户</a></li>
+                <li><a href="<?php echo site_url('clients/search'); ?>">修改用户</a></li>
                 <li><a href="<?php echo site_url('clients'); ?>">发布业务</a></li>
                 <li><a href="<?php echo site_url('clients'); ?>">查询业务</a></li>
             </ul>
@@ -30,7 +30,7 @@
                         </div>
                         <div class="panel-body">
                             <div class="alert alert-warning" role="alert">
-                                <strong>存在</strong>相同用户!<a href="<?php echo site_url('clients/create'); ?>" class="pull-right">是否需要修改?</a>
+                                <strong>存在</strong>相同用户!<a href="<?php echo site_url('clients/modify/'."$wx_id"); ?>" class="pull-right">是否需要修改?</a>
                             </div>
                             <table class="table table-bordered table-hover table-responsive table-striped">
                                 <thead>
@@ -74,7 +74,7 @@
                         </div>
                         <div class="panel-body">
                             <div class="alert alert-info" role="alert">
-                                <strong>存在</strong>该用户!<a href="<?php echo site_url('clients/create'); ?>" class="pull-right">是否需要修改?</a>
+                                <strong>存在</strong>该用户!<a href="<?php echo site_url('clients/modify/'."$wx_id"); ?>" class="pull-right">是否需要修改?</a>
                             </div>
                             <table class="table table-bordered table-hover table-responsive table-striped">
                                 <thead>

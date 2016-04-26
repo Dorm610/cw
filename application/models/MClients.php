@@ -60,4 +60,24 @@ class MClients extends CI_Model
         return $query->row_array();
     }
 
+    public function modifyClient(){
+        $this->load->helper('url');
+
+//        $name = url_title($this->input->post('name'),'dash',true);
+
+        $data=array(
+            'name'=>$this->input->post('name'),
+            'wx_name'=>$this->input->post('wx_name'),
+            'qq'=>$this->input->post('qq'),
+            'phone'=>$this->input->post('phone'),
+            'address'=>$this->input->post('address'),
+            'email'=>$this->input->post('email'),
+            'company'=>$this->input->post('company'),
+            'invalid_id'=>'0',
+            'recorder'=>$this->input->post('myselect'),
+        );
+        $wx_id = $this->input->post('wx_id');
+        return $this->db->update('clients',$data, array('wx_id' => $wx_id));
+    }
+
 }

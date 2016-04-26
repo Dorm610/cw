@@ -10,13 +10,14 @@
                 <li><a href="<?php echo site_url('clients'); ?>">首页</a></li>
                 <li class="active"><a href="<?php echo site_url('clients/create'); ?>">创建用户</a></li>
                 <li><a href="<?php echo site_url('clients/search'); ?>">查询用户</a></li>
-                <li><a href="<?php echo site_url('clients'); ?>">修改用户</a></li>
+                <li><a href="<?php echo site_url('clients/search'); ?>">修改用户</a></li>
                 <li><a href="<?php echo site_url('clients'); ?>">发布业务</a></li>
                 <li><a href="<?php echo site_url('clients'); ?>">查询业务</a></li>
             </ul>
         </div>
         <div class="col-xs-9 col-xs-3 col-sm-10 col-sm-offset-2 col-md-11 col-md-offset-1 main">
 <!--            --><?php //echo validation_errors(); ?>
+            <?php if ($success == 'create') {?>
             <div class="col-md-6">
                 <div class="panel panel-primary">
                     <div class="panel-heading">
@@ -29,4 +30,18 @@
                     </div>
                 </div>
             </div>
+            <?php } else if ($success == 'modify') { ?>
+            <div class="col-md-6">
+                <div class="panel panel-primary">
+                    <div class="panel-heading">
+                        <h3 class="panel-title">修改用户</h3>
+                    </div>
+                    <div class="panel-body">
+                        <div class="alert alert-success" role="alert">
+                            <strong>修改</strong>用户成功!<a href="<?php echo site_url('clients/search'); ?>" class="pull-right">继续修改</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <?php } ?>
         </div>
