@@ -47,8 +47,8 @@ class MClients extends CI_Model
         return $this->db->insert('clients',$data);
     }
 
-    public function exist_clients(){
-        $query = $this->db->get_where('clients',array('wx_id'=>$this->input->post('wx_id')));
+    public function exist_clients($wx_id){
+        $query = $this->db->get_where('clients',array('wx_id'=>$wx_id));
         if ($query->num_rows() > 0) {
             return true;
         }else
@@ -80,4 +80,52 @@ class MClients extends CI_Model
         return $this->db->update('clients',$data, array('wx_id' => $wx_id));
     }
 
+    public function importClients(){
+        $this->load->helper('url');
+
+        /** Include path **/
+        set_include_path(get_include_path() . PATH_SEPARATOR . './PHPExcel/');
+
+        /** PHPExcel_IOFactory */
+        include 'PHPExcel/IOFactory.php';
+//        $name = url_title($this->input->post('name'),'dash',true);
+        $inputFileName = './upload/client.xls';
+        $objPHPExcel = PHPExcel_IOFactory::load($inputFileName);
+        $sheetData = $objPHPExcel->getActiveSheet()->toArray(null,true,true,true);
+
+        $inputData = array();
+        if (sizeof($sheetData) > 0)
+        {
+            foreach ($sheetData as $row) {
+                $wx_id = $row['B'];
+                if ($wx_id == null || $wx_id == ""){
+                    continue;
+                }
+                if ($this->exist_clients($wx_id)){
+                    continue;
+                }
+                $temp=array(
+                    'name'=>$row['A'],
+                    'wx_id'=>$row['B'],
+                    'wx_name'=>$row['C'],
+                    'qq'=>$row['E'],
+                    'phone'=>$row['D'],
+                    'address'=>$row['F'],
+                    'email'=>$row['G'],
+                    'company'=>$row['H'],
+                    'invalid_id'=>'0',
+                );
+                array_push($inputData, $temp);
+            }
+        }
+        $this->db->trans_start();
+        $this->db->insert_batch('clients',$inputData);
+        $this->db->trans_complete();
+
+        if ($this->db->trans_status() === FALSE)
+        {
+            return false;
+        }else
+            return true;
+    }
 }

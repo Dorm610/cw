@@ -8,7 +8,8 @@
         <div class="col-xs-3 col-sm-2 col-md-1 sidebar">
             <ul class="nav nav-sidebar">
                 <li><a href="<?php echo site_url('clients'); ?>">首页</a></li>
-                <li class="active"><a href="<?php echo site_url('clients/create'); ?>">创建用户</a></li>
+                <li><a href="<?php echo site_url('clients/create'); ?>">创建用户</a></li>
+                <li><a href="<?php echo site_url('clients/import'); ?>">批量导入</a></li>
                 <li><a href="<?php echo site_url('clients/search'); ?>">查询用户</a></li>
                 <li><a href="<?php echo site_url('clients/search'); ?>">修改用户</a></li>
                 <li><a href="<?php echo site_url('clients'); ?>">发布业务</a></li>
@@ -43,5 +44,18 @@
                     </div>
                 </div>
             </div>
+            <?php } else if ($success == 'import') {?>
+                <div class="col-md-6">
+                    <div class="panel panel-primary">
+                        <div class="panel-heading">
+                            <h3 class="panel-title">批量导入</h3>
+                        </div>
+                        <div class="panel-body">
+                            <div class="alert alert-success" role="alert">
+                                <strong>导入</strong>用户成功!<a href="<?php echo site_url('clients/import'); ?>" class="pull-right">继续导入</a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
             <?php } ?>
         </div>
