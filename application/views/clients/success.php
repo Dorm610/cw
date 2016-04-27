@@ -57,5 +57,18 @@
                         </div>
                     </div>
                 </div>
+            <?php } else if ($success == 'import_fail') {?>
+                <div class="col-md-6">
+                    <div class="panel panel-primary">
+                        <div class="panel-heading">
+                            <h3 class="panel-title">批量导入</h3>
+                        </div>
+                        <div class="panel-body">
+                            <div class="alert alert-warning" role="alert">
+                                <strong>导入</strong>用户失败!<a href="<?php echo site_url('clients/import'); ?>" class="pull-right">重新导入</a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
             <?php } ?>
         </div>

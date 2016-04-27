@@ -184,6 +184,11 @@ class CClients extends CI_Controller
                 $this->load->view('header', $data);
                 $this->load->view('clients/success', $data); //跳转页面
                 $this->load->view('footer', $data);
+            }else {
+                $data['success'] = 'import_fail';
+                $this->load->view('header', $data);
+                $this->load->view('clients/success', $data); //跳转页面
+                $this->load->view('footer', $data);
             }
         }
 
