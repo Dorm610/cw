@@ -35,8 +35,9 @@
                             <!-- Search input-->
                             <label for="inputName" class="control-label">文件名：</label>
                             <input type="file" name="filename" placeholder="..." class="form-control" size="20" />
-                            <p class="help-block">请上传Excel文件,大小需小于2M<br/>请按用户名,微信号,微信名,QQ号,手机号,地址,Email,公司填写
-                            <br/>Excel第一行必须为数据,不能有表头!</p>
+                            <p class="help-block">请上传Excel文件,大小需小于2M!<br/>请按用户名,微信号,微信名,QQ号,手机号,地址,Email,公司填写!
+                            <br/>Excel第一行必须为数据,不能有表头!
+                            <br/>如果与数据库中数据有重复的,按Excel进行更新!</p>
                         </div>
                         <button type="submit" name="submit" class="btn btn-default">上传</button>
                     </div>

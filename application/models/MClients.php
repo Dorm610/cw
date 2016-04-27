@@ -93,7 +93,8 @@ class MClients extends CI_Model
         $objPHPExcel = PHPExcel_IOFactory::load($inputFileName);
         $sheetData = $objPHPExcel->getActiveSheet()->toArray(null,true,true,true);
 
-        $inputData = array();
+        $insertData = array();
+        $updateData = array();
         if (sizeof($sheetData) > 0)
         {
             foreach ($sheetData as $row) {
@@ -102,9 +103,21 @@ class MClients extends CI_Model
                     continue;
                 }
                 if ($this->exist_clients($wx_id)){
+                    $temp0=array(
+                        'name'=>$row['A'],
+                        'wx_id'=>$row['B'],
+                        'wx_name'=>$row['C'],
+                        'qq'=>$row['E'],
+                        'phone'=>$row['D'],
+                        'address'=>$row['F'],
+                        'email'=>$row['G'],
+                        'company'=>$row['H'],
+                        'invalid_id'=>'0',
+                    );
+                    array_push($updateData, $temp0);
                     continue;
                 }
-                $temp=array(
+                $temp1=array(
                     'name'=>$row['A'],
                     'wx_id'=>$row['B'],
                     'wx_name'=>$row['C'],
@@ -115,11 +128,16 @@ class MClients extends CI_Model
                     'company'=>$row['H'],
                     'invalid_id'=>'0',
                 );
-                array_push($inputData, $temp);
+                array_push($insertData, $temp1);
             }
         }
         $this->db->trans_start();
-        $this->db->insert_batch('clients',$inputData);
+        if (sizeof($updateData)){
+            $this->db->update_batch('clients',$updateData,'wx_id');
+        }
+        if (sizeof($insertData)){
+            $this->db->insert_batch('clients',$insertData);
+        }
         $this->db->trans_complete();
 
         if ($this->db->trans_status() === FALSE)
