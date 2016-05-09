@@ -46,33 +46,49 @@ class CMessages extends CI_Controller
 
     public function search(){
         $this->load->helper('form');
-        $this->load->library('form_validation');
+//        $this->load->library('form_validation');
 
         $data['title']='Search a new messages';
         $data['base_url']=base_url();
+        /**
+         * 暂时为可查询到全部业务 后期可添加表单查询
+         */
         // 为表单设置验证规则，如果不填，数据库值为''，而不是NULL
-        $this->form_validation->reset_validation();
-        $this->form_validation->set_rules('title','Title','required');
+//        $this->form_validation->reset_validation();
+//        $this->form_validation->set_rules('title','Title','required');
 
-        if ($this->form_validation->run() === false){
-            //验证不通过，重新载入
-            $this->load->view('header',$data);
-            $this->load->view('messages/search');
-            $this->load->view('footer',$data);
-        }else{
-            $title = $this->mMessages->input->post('title');
-            if ($this->mMessages->exist_messages($title)){
-                $data['success'] = 'search';
-                $this->load->view('header', $data);
-                $this->load->view('messages/success', $data);
-                $this->load->view('footer', $data);
-            }
-            else {
-                $data['success'] = 'searchfail';
-                $this->load->view('header', $data);
-                $this->load->view('messages/success', $data);
-                $this->load->view('footer', $data);
-            }
+//        if ($this->form_validation->run() === false){
+//            //验证不通过，重新载入
+//            $this->load->view('header',$data);
+//            $this->load->view('messages/search');
+//            $this->load->view('footer',$data);
+//        }else{
+//            $title = $this->mMessages->input->post('title');
+//            if ($this->mMessages->exist_messages_title($title)){
+//                $data['success'] = 'search_title';
+//                $this->load->view('header', $data);
+//                $this->load->view('messages/success', $data);
+//                $this->load->view('footer', $data);
+//            }
+//            else {
+//                $data['success'] = 'searchfail';
+//                $this->load->view('header', $data);
+//                $this->load->view('messages/success', $data);
+//                $this->load->view('footer', $data);
+//            }
+//        }
+
+        if ($this->mMessages->exist_messages()){
+            $data['success'] = 'searchall';
+            $this->load->view('header', $data);
+            $this->load->view('messages/success', $data);
+            $this->load->view('footer', $data);
+        }
+        else {
+            $data['success'] = 'searchfail';
+            $this->load->view('header', $data);
+            $this->load->view('messages/success', $data);
+            $this->load->view('footer', $data);
         }
     }
 }

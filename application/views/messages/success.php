@@ -26,7 +26,7 @@
                         </div>
                     </div>
                 </div>
-            <?php } else if ($success == 'search') {
+            <?php } else if ($success == 'search_title') {
                 $title = $this->mMessages->input->post('title');
                 $result = $this->mMessages->get_messages($title)
                 ?>
@@ -58,6 +58,33 @@
                         </div>
                     </div>
                 </div>
+                $result = $this->mMessages->get_allmessages()
+                ?>
+                <div class="col-md-6">
+                    <div class="panel panel-primary">
+                        <div class="panel-heading">
+                            <h3 class="panel-title">查询业务</h3>
+                        </div>
+                        <div class="panel-body">
+                            <div class="alert alert-success" role="alert">
+                                <strong>查询</strong>业务成功!<a href="<?php echo site_url('messages/search'); ?>" class="pull-right">继续查询</a>
+                            </div>
+                            <table class="table table-bordered table-hover table-responsive table-striped">
+                                <thead>
+                                <tr>
+                                    <th>#</th>
+                                    <th>标题</th>
+                                    <th>内容</th>
+                                </tr>
+                                </thead>
+                                <tbody>
+                                <?php foreach ($result as $row) {?>
+                                <?php } ?>
+                                </tbody>
+                            </table>
+                        </div>
+                    </div>
+                </div>
             <?php } else if ($success == 'searchfail') { ?>
                 <div class="col-md-6">
                     <div class="panel panel-primary">
@@ -66,7 +93,7 @@
                         </div>
                         <div class="panel-body">
                             <div class="alert alert-warning" role="alert">
-                                <strong>查询</strong>业务失败!<a href="<?php echo site_url('messages/search'); ?>" class="pull-right">继续查询</a>
+                                <strong>查询</strong>业务失败! 暂时没有业务!<a href="<?php echo site_url('messages/search'); ?>" class="pull-right">继续查询</a>
                             </div>
                         </div>
                     </div>

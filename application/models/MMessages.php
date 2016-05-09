@@ -20,6 +20,7 @@ class MMessages extends CI_Model
         $data = array(
             'title' => $this->input->post('title'),
             'content' => $this->input->post('content'),
+            'invalid_id'=>'0',
         );
 
         return $this->db->insert('messages', $data);
@@ -30,8 +31,21 @@ class MMessages extends CI_Model
         return $query->row_array();
     }
 
-    public function exist_messages($title){
+    public function get_allmessages(){
+        $query = $this->db->get_where('messages',array('invalid_id'=>'0'));;
+        return $query->result_array();
+    }
+
+    public function exist_messages_title($title){
         $query = $this->db->get_where('messages',array('title'=>$title));
+        if ($query->num_rows() > 0) {
+            return true;
+        }else
+            return false;
+    }
+
+    public function exist_messages(){
+        $query = $this->db->get_where('messages',array('invalid_id'=>'0'));
         if ($query->num_rows() > 0) {
             return true;
         }else
