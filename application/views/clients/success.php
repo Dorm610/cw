@@ -12,8 +12,8 @@
                 <li><a href="<?php echo site_url('clients/import'); ?>">批量导入</a></li>
                 <li><a href="<?php echo site_url('clients/search'); ?>">查询用户</a></li>
                 <li><a href="<?php echo site_url('clients/search'); ?>">修改用户</a></li>
-                <li><a href="<?php echo site_url('clients'); ?>">发布业务</a></li>
-                <li><a href="<?php echo site_url('clients'); ?>">查询业务</a></li>
+                <li><a href="<?php echo site_url('messages/create'); ?>">发布业务</a></li>
+                <li><a href="<?php echo site_url('messages/search'); ?>">查询业务</a></li>
             </ul>
         </div>
         <div class="col-xs-9 col-xs-3 col-sm-10 col-sm-offset-2 col-md-11 col-md-offset-1 main">
