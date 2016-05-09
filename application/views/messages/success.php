@@ -58,6 +58,7 @@
                         </div>
                     </div>
                 </div>
+            <?php } else if ($success == 'searchall') {
                 $result = $this->mMessages->get_allmessages()
                 ?>
                 <div class="col-md-6">
@@ -66,9 +67,6 @@
                             <h3 class="panel-title">查询业务</h3>
                         </div>
                         <div class="panel-body">
-                            <div class="alert alert-success" role="alert">
-                                <strong>查询</strong>业务成功!<a href="<?php echo site_url('messages/search'); ?>" class="pull-right">继续查询</a>
-                            </div>
                             <table class="table table-bordered table-hover table-responsive table-striped">
                                 <thead>
                                 <tr>
@@ -79,6 +77,11 @@
                                 </thead>
                                 <tbody>
                                 <?php foreach ($result as $row) {?>
+                                <tr>
+                                    <td><?php echo $row['id']?></td>
+                                    <td><?php echo $row['title']?></td>
+                                    <td><?php echo $row['content']?></td>
+                                </tr>
                                 <?php } ?>
                                 </tbody>
                             </table>
