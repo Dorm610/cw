@@ -20,6 +20,8 @@ class MMessages extends CI_Model
         $data = array(
             'title' => $this->input->post('title'),
             'content' => $this->input->post('content'),
+            'origin' => $this->input->post('origin'),
+            'category' => $this->input->post('category'),
             'invalid_id'=>'0',
         );
 
@@ -50,6 +52,13 @@ class MMessages extends CI_Model
             return true;
         }else
             return false;
+    }
+
+    public function delete_message($id){
+        $data=array(
+            'invalid_id'=>'1'
+        );
+        $this->db->update('messages',$data, array('id' => $id));
     }
 
 }

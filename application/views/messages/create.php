@@ -34,7 +34,42 @@
                             <textarea class="form-control" rows="5" name="content" id="inputContent"></textarea>
                             <p class="help-block">请正确输入业务的内容</p>
                         </div>
-                        <button type="submit" name="submit" class="btn btn-default">发布</button>
+                        <div class="control-group">
+                            <!-- Search input-->
+                            <label for="inputOrigin" class="control-label">信息来源：</label>
+                            <input type="text" placeholder="信息来源..." class="form-control" name="origin"
+                                   id="inputOrigin">
+                            <p class="help-block">请正确输入业务的信息来源</p>
+                        </div>
+                        <div class="control-group">
+                            <!-- Search input-->
+                            <label for="inputCategory" class="control-label">信息各类：</label>
+                            <input type="text" placeholder="信息各类..." class="form-control" name="category"
+                                   id="inputCategory">
+                            <p class="help-block">请正确输入业务的信息各类</p>
+                        </div>
+                        <div class="control-group">
+                            <!-- Search input-->
+                            <label for="inputCompany" class="control-label">企业名称：</label>
+                            <input type="text" placeholder="企业名称..." class="form-control" name="company"
+                                   id="inputCompany">
+                            <p class="help-block">请正确输入企业的名称</p>
+                        </div>
+                        <div class="control-group">
+                            <!-- Search input-->
+                            <label for="inputCompanyType" class="control-label">企业类型：</label>
+                            <input type="text" placeholder="企业类型..." class="form-control" name="company_type"
+                                   id="inputCompanyType">
+                            <p class="help-block">请正确输入企业的类型</p>
+                        </div>
+                        <div class="control-group">
+                            <!-- Search input-->
+                            <label for="inputContact" class="control-label">联系电话：</label>
+                            <input type="text" placeholder="联系电话..." class="form-control" name="contact"
+                                   id="inputContact">
+                            <p class="help-block">请正确输入联系电话</p>
+                        </div>
+                        <button type="submit" name="submit" class="btn btn-default pull-right">发布</button>
                     </div>
                     </form>
                 </div>

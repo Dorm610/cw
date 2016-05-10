@@ -67,6 +67,7 @@ $route['messages/create'] = 'CMessages/create';
 $route['messages/search'] = 'CMessages/search';
 $route['messages/(:any)'] = 'CMessages/view/$1';
 $route['messages'] = 'CMessages/search';
+$route['messages/delete/(:any)'] = 'CMessages/delete/$1';
 
 $route['default_controller'] = 'CClients';
 //$route['(:any)'] = 'cclients/view/$1';

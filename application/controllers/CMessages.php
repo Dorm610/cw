@@ -111,4 +111,31 @@ class CMessages extends CI_Controller
         $this->load->view('messages/view',$data);
         $this->load->view('footer',$data);
     }
+
+    /**
+     * 删除某项业务信息的详细数据 将invalid_id设成1
+     * @param null $id 业务id
+     */
+    public function delete($id){
+        $this->mMessages->delete_message($id);
+
+        $data['title']='Search a new messages';
+        $data['base_url']=base_url();
+
+        /**
+         * 暂时为可查询到全部业务 后期可添加表单查询
+         */
+        if ($this->mMessages->exist_messages()){
+            $data['success'] = 'searchall';
+            $this->load->view('header', $data);
+            $this->load->view('messages/success', $data);
+            $this->load->view('footer', $data);
+        }
+        else {
+            $data['success'] = 'searchfail';
+            $this->load->view('header', $data);
+            $this->load->view('messages/success', $data);
+            $this->load->view('footer', $data);
+        }
+    }
 }
