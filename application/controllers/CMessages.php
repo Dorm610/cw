@@ -91,4 +91,24 @@ class CMessages extends CI_Controller
             $this->load->view('footer', $data);
         }
     }
+
+    /**
+     * 显示某项业务信息的详细数据
+     * @param null $id 业务id
+     */
+    public function view($id=null){
+
+        $data['messages']=$this->mMessages->get_messages($id);
+        $data['base_url']=base_url();
+        if (empty($data['messages'])) {
+            echo 'wtf no such message:'.$id;
+            show_404();
+        }
+
+        $data['title']=$data['messages']['id'].'的信息';
+
+        $this->load->view('mobile_header',$data);
+        $this->load->view('messages/view',$data);
+        $this->load->view('footer',$data);
+    }
 }

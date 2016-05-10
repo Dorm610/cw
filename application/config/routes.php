@@ -60,12 +60,13 @@ $route['clients/search'] = 'CClients/search';
 $route['clients/modify'] = 'CClients/modify';
 $route['clients/modify/(:any)'] = 'CClients/modify/$1';
 $route['clients/import'] = 'CClients/import';
-$route['messages/create'] = 'CMessages/create';
-$route['messages/search'] = 'CMessages/search';
-
 $route['clients/(:any)'] = 'CClients/view/$1';
 $route['clients'] = 'CClients';
 
+$route['messages/create'] = 'CMessages/create';
+$route['messages/search'] = 'CMessages/search';
+$route['messages/(:any)'] = 'CMessages/view/$1';
+$route['messages'] = 'CMessages/search';
 
 $route['default_controller'] = 'CClients';
 //$route['(:any)'] = 'cclients/view/$1';

@@ -26,8 +26,8 @@ class MMessages extends CI_Model
         return $this->db->insert('messages', $data);
     }
 
-    public function get_messages($title){
-        $query = $this->db->get_where('messages',array('title'=>$title));
+    public function get_messages($id){
+        $query = $this->db->get_where('messages',array('id'=>$id, 'invalid_id'=>'0'));
         return $query->row_array();
     }
 
@@ -36,8 +36,8 @@ class MMessages extends CI_Model
         return $query->result_array();
     }
 
-    public function exist_messages_title($title){
-        $query = $this->db->get_where('messages',array('title'=>$title));
+    public function exist_messages_title($id){
+        $query = $this->db->get_where('messages',array('id'=>$id, 'invalid_id'=>'0'));
         if ($query->num_rows() > 0) {
             return true;
         }else
@@ -51,4 +51,5 @@ class MMessages extends CI_Model
         }else
             return false;
     }
+
 }

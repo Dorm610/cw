@@ -26,38 +26,6 @@
                         </div>
                     </div>
                 </div>
-            <?php } else if ($success == 'search_title') {
-                $title = $this->mMessages->input->post('title');
-                $result = $this->mMessages->get_messages($title)
-                ?>
-                <div class="col-md-6">
-                    <div class="panel panel-primary">
-                        <div class="panel-heading">
-                            <h3 class="panel-title">查询业务</h3>
-                        </div>
-                        <div class="panel-body">
-                            <div class="alert alert-success" role="alert">
-                                <strong>查询</strong>业务成功!<a href="<?php echo site_url('messages/search'); ?>" class="pull-right">继续查询</a>
-                            </div>
-                            <table class="table table-bordered table-hover table-responsive table-striped">
-                                <thead>
-                                <tr>
-                                    <th>#</th>
-                                    <th>标题</th>
-                                    <th>内容</th>
-                                </tr>
-                                </thead>
-                                <tbody>
-                                <tr>
-                                    <td><?php echo $result['id']?></td>
-                                    <td><?php echo $result['title']?></td>
-                                    <td><?php echo $result['content']?></td>
-                                </tr>
-                                </tbody>
-                            </table>
-                        </div>
-                    </div>
-                </div>
             <?php } else if ($success == 'searchall') {
                 $result = $this->mMessages->get_allmessages()
                 ?>
@@ -73,6 +41,7 @@
                                     <th>#</th>
                                     <th>标题</th>
                                     <th>内容</th>
+                                    <th>详细</th>
                                 </tr>
                                 </thead>
                                 <tbody>
@@ -81,6 +50,7 @@
                                     <td><?php echo $row['id']?></td>
                                     <td><?php echo $row['title']?></td>
                                     <td><?php echo $row['content']?></td>
+                                    <td><a href="<?php echo site_url('messages/'.$row['id']); ?>">信息页面</a></td>
                                 </tr>
                                 <?php } ?>
                                 </tbody>
