@@ -4,9 +4,8 @@
 <!--<em>&copy;超级矿资源 2016</em>-->
 </div>
 </div>
-
-<script src="js/jquery-1.11.1.min.js"></script>
-<script src="js/bootstrap.min.js"></script>
+<h1></h1>
+<em><b>超级矿资源</b> &copy; 信息平台发布</em>
 
 </body>
 </html>

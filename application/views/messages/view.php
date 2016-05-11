@@ -7,10 +7,9 @@
  */?>
 <div>
     <div>
-        <h2><?php echo $messages['title'] ?></h2>
-        <h3><?php echo $messages['content'] ?></h3>
-        <h4><?php echo $messages['origin'] ?></h4>
-        <?php echo $messages['category'] ?>
+        <?php echo $content ?>
+<!--        <h4>--><?php //echo $messages['origin'] ?><!--</h4>-->
+<!--        --><?php //echo $messages['category'] ?>
 
 
 

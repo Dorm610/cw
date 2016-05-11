@@ -26,7 +26,7 @@ class CMessages extends CI_Controller
         $data['base_url']=base_url();
         // 为表单设置验证规则，如果不填，数据库值为''，而不是NULL
         $this->form_validation->reset_validation();
-        $this->form_validation->set_rules('title','Title','required');
+//        $this->form_validation->set_rules('title','Title','required');
         $this->form_validation->set_rules('content','Content','required');
 
         if ($this->form_validation->run() === false){
@@ -105,11 +105,45 @@ class CMessages extends CI_Controller
             show_404();
         }
 
-        $data['title']=$data['messages']['id'].'的信息';
+        // 转发或分享微信时显示缩略图
+        switch ($data['messages']['category']){
+            case '求购':
+                $data['icon']='buy.jpg';
+                break;
+            case '供应':
+                $data['icon']='sell.jpg';
+                break;
+            case '求车':
+                $data['icon']='want_truck.jpg';
+                break;
+            case '空车':
+                $data['icon']='empty_truck.jpg';
+                break;
+            default:
+                $data['icon']='other.jpg';
+        }
+
+        $data['title']=substr($data['messages']['content'],0,78).'…';
+
+        $content=$data['messages']['content'];
+        $reg = '/[^0-9+]*(?P<tel>(\+86[0-9]{11})|([0-9]{11}))[^0-9+]*/';
+        // 用正则表达式找出电话，不能有空格或其他符号
+        if (preg_match_all($reg, $content, $mobiles)){
+            // 通过两次替换将电话号码替为超链接
+            for($i=0;$i<count($mobiles[1]);$i++){
+                $phone = $mobiles[1][$i];
+                $phone = str_replace($mobiles[1][$i], '<a href="tel:'.$mobiles[1][$i].'">'.$mobiles[1][$i].'</a>', $phone);
+                $content = str_replace($mobiles[1][$i], $phone, $content);
+            }
+        }
+
+
+
+        $data['content']=$content;
 
         $this->load->view('mobile_header',$data);
         $this->load->view('messages/view',$data);
-        $this->load->view('footer',$data);
+        $this->load->view('mobile_footer',$data);
     }
 
     /**

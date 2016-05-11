@@ -16,12 +16,24 @@ class MMessages extends CI_Model
     public function set_messages()
     {
         $this->load->helper('url');
+        $this->load->helper('date');
+
+        // 标题不显示，也不录入，用其他信息拼接出一个标题
+        $nowTime = ''.date(DATE_ATOM, now('Asia/shanghai'));
+        $content = $this->input->post('content');
+        $origin = $this->input->post('mySelect1');
+        $category = $this->input->post('mySelect2');
+        $remark = $this->input->post('mySelect3');
+        $titleStr = substr($nowTime,0,16).'_'.$category."_".substr($content,0,20);
+
 
         $data = array(
-            'title' => $this->input->post('title'),
-            'content' => $this->input->post('content'),
-            'origin' => $this->input->post('origin'),
-            'category' => $this->input->post('category'),
+
+            'title' => $titleStr,
+            'content' => $content,
+            'origin' => $origin,
+            'category' => $category,
+            'remark'=> $remark,
             'invalid_id'=>'0',
         );
 

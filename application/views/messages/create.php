@@ -21,53 +21,53 @@
                     <div class="panel-body">
                         <!--创建表单-->
                         <?php echo form_open('messages/create'); ?>
-                        <div class="control-group">
-                            <!-- Search input-->
-                            <label for="inputTitle" class="control-label">标题：</label>
-                            <input type="text" placeholder="标题..." class="form-control" name="title"
-                                   id="inputTitle">
-                            <p class="help-block">请正确输入业务的标题</p>
-                        </div>
+                        <label for="inputOrigin" class="control-label">信息来源：</label>
+                        <select name="mySelect1" id="inputOrigin">
+                            <option value="客户微信" <?php echo  set_select('mySelect1', '1', TRUE); ?> >客户微信</option>
+                            <option value="朋友圈" <?php echo  set_select('mySelect1', '2'); ?> >朋友圈</option>
+                            <option value="电话" <?php echo  set_select('mySelect1', '3'); ?> >电话</option>
+                            <option value="第三方网站" <?php echo  set_select('mySelect1', '4'); ?> >第三方网站</option>
+                            <option value="其他" <?php echo  set_select('mySelect1', '5'); ?> >其他</option>
+                        </select>
+                        <label for="inputCategory" class="control-label">信息分类：</label>
+                        <select name="mySelect2" id="inputCategory">
+                            <option value="求车" <?php echo  set_select('mySelect2', '1', TRUE); ?> >求车</option>
+                            <option value="空车" <?php echo  set_select('mySelect2', '2'); ?> >空车</option>
+                            <option value="供应" <?php echo  set_select('mySelect2', '3'); ?> >供应</option>
+                            <option value="求购" <?php echo  set_select('mySelect2', '4'); ?> >求购</option>
+                            <option value="其他" <?php echo  set_select('mySelect2', '5'); ?> >其他</option>
+                        </select>
+                        <label for="inputRemark" class="control-label">信息标识：</label>
+                        <select name="mySelect3" id="inputRemark">
+                            <option value="普通" <?php echo  set_select('mySelect3', '1', TRUE); ?> >普通</option>
+                            <option value="三星" <?php echo  set_select('mySelect3', '2'); ?> >三星</option>
+                            <option value="五星" <?php echo  set_select('mySelect3', '3'); ?> >五星</option>
+                            <option value="紧急" <?php echo  set_select('mySelect3', '4'); ?> >紧急</option>
+                            <option value="长期" <?php echo  set_select('mySelect3', '5'); ?> >长期</option>
+                        </select>
                         <div class="control-group">
                             <!-- Search input-->
                             <label for="inputContent" class="control-label">内容：</label>
                             <textarea class="form-control" rows="5" name="content" id="inputContent"></textarea>
-                            <p class="help-block">请正确输入业务的内容</p>
+                            <p class="help-block">请输入要发布业务信息的内容</p>
                         </div>
                         <div class="control-group">
-                            <!-- Search input-->
-                            <label for="inputOrigin" class="control-label">信息来源：</label>
-                            <input type="text" placeholder="信息来源..." class="form-control" name="origin"
-                                   id="inputOrigin">
-                            <p class="help-block">请正确输入业务的信息来源</p>
-                        </div>
-                        <div class="control-group">
-                            <!-- Search input-->
-                            <label for="inputCategory" class="control-label">信息各类：</label>
-                            <input type="text" placeholder="信息各类..." class="form-control" name="category"
-                                   id="inputCategory">
-                            <p class="help-block">请正确输入业务的信息各类</p>
-                        </div>
-                        <div class="control-group">
-                            <!-- Search input-->
                             <label for="inputCompany" class="control-label">企业名称：</label>
                             <input type="text" placeholder="企业名称..." class="form-control" name="company"
                                    id="inputCompany">
                             <p class="help-block">请正确输入企业的名称</p>
                         </div>
                         <div class="control-group">
-                            <!-- Search input-->
                             <label for="inputCompanyType" class="control-label">企业类型：</label>
                             <input type="text" placeholder="企业类型..." class="form-control" name="company_type"
                                    id="inputCompanyType">
                             <p class="help-block">请正确输入企业的类型</p>
                         </div>
                         <div class="control-group">
-                            <!-- Search input-->
                             <label for="inputContact" class="control-label">联系电话：</label>
                             <input type="text" placeholder="联系电话..." class="form-control" name="contact"
                                    id="inputContact">
-                            <p class="help-block">请正确输入联系电话</p>
+                            <p class="help-block">请正确输入联系电话，不能有空格或其他符号</p>
                         </div>
                         <button type="submit" name="submit" class="btn btn-default pull-right">发布</button>
                     </div>
