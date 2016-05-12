@@ -5,7 +5,7 @@
  * Date: 16/4/25
  * Time: 下午11:45
  */
-    $result = $this->mClients->getClient_wx($wx_id);
+    $result = $this->mClients->getClients($id);
 ?>
 
 <div class="container-fluid">
@@ -26,11 +26,11 @@
             <div class="col-md-6">
                 <div class="panel panel-primary">
                     <div class="panel-heading">
-                        <h3 class="panel-title">修改用户</h3>
+                        <h3 class="panel-title">修改用户 #<?php echo $id?></h3>
                     </div>
                     <div class="panel-body">
                         <!--创建表单-->
-                        <?php echo form_open('clients/modify'); ?>
+                        <?php echo form_open('clients/modify/'.$id); ?>
                         <div class="control-group">
                             <!-- Search input-->
                             <label for="inputName" class="control-label">用户名：</label>
@@ -41,8 +41,8 @@
                         <div class="control-group">
                             <!-- Search input-->
                             <label for="inputWxNum" class="control-label">微信号：</label>
-                            <input type="text" placeholder="微信号..." class="form-control" id="inputWxNum"
-                                   value="<?php echo $result['wx_id']?>" disabled>
+                            <input type="text" placeholder="微信号..." class="form-control" name="wx_id"
+                                   id="inputWxNum" value="<?php echo $result['wx_id']?>">
                             <p class="help-block">请正确输入用户的微信号</p>
                         </div>
                         <div class="control-group">
@@ -87,10 +87,10 @@
                                    id="inputCompany" value="<?php echo $result['company']?>">
                             <p class="help-block">请正确输入用户的公司/企业/厂矿名</p>
                         </div>
-                        <input type="text" name="wx_id" class="hide form-group" value="<?php echo $result['wx_id']?>">
+                        <input type="text" name="id" class="hide form-group" value="<?php echo $result['id']?>">
                         <button type="submit" name="submit" class="btn btn-default">修改</button>
+
+                        </form>
                     </div>
-                    </form>
                 </div>
             </div>
-        </div>

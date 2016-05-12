@@ -29,8 +29,8 @@
                             <p class="help-block">请正确输入业务的标题</p>
                         </div>
                         <button type="submit" name="submit" class="btn btn-default">查询</button>
+                        </form>
                     </div>
-                    </form>
                 </div>
             </div>
         </div>

@@ -40,8 +40,8 @@
                             <br/>如果与数据库中数据有重复的,按Excel进行更新!</p>
                         </div>
                         <button type="submit" name="submit" class="btn btn-default">上传</button>
+                        </form>
                     </div>
-                    </form>
                 </div>
             </div>
         </div>

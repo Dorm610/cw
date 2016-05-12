@@ -22,6 +22,8 @@
                     <th>编号</th>
                     <th>名称</th>
                     <th>详细</th>
+                    <th>修改</th>
+                    <th>删除</th>
                 </tr>
                 </thead>
                 <tbody>
@@ -29,7 +31,9 @@
                     <tr>
                         <td><?php echo $client['id']; ?></td>
                         <td><?php echo $client['name']; ?></td>
-                        <td><a href="<?php echo site_url('clients/' . $client['id']); ?>">view more</a></td>
+                        <td><a href="<?php echo site_url('clients/' . $client['id']); ?>">查看</a></td>
+                        <td><a href="<?php echo site_url('clients/modify/' . $client['id']); ?>">修改</a></td>
+                        <td><a href="<?php echo site_url('clients/delete/' . $client['id']); ?>">删除</a></td>
                     </tr>
                 <?php endforeach; ?>
 

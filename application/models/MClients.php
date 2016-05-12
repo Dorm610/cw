@@ -17,19 +17,16 @@ class MClients extends CI_Model
     public function getClients($id = false)
     {
        if($id === false){
-           $query = $this->db->get_where('clients',array('invalid_id'=>'0'));
+           $query = $this->db->get_where('clients',array('invalid_id'=>0));
 //           print_r($query->result_array());
            return $query->result_array();
        }
 
-        $query = $this->db->get_where('clients',array('id'=>$id));
+        $query = $this->db->get_where('clients',array('id'=>$id,'invalid_id'=>0));
         return $query->row_array();
     }
 
     public function set_clients(){
-        $this->load->helper('url');
-
-//        $name = url_title($this->input->post('name'),'dash',true);
 
         $data=array(
             'name'=>$this->input->post('name'),
@@ -47,8 +44,9 @@ class MClients extends CI_Model
         return $this->db->insert('clients',$data);
     }
 
-    public function exist_clients($wx_id){
-        $query = $this->db->get_where('clients',array('wx_id'=>$wx_id));
+    public function exist_clients($name){
+        $sql="select * from clients where name like ? and invalid_id = 0";
+        $query = $this->db->query($sql,array("%".$name."%"));
         if ($query->num_rows() > 0) {
             return true;
         }else
@@ -56,16 +54,19 @@ class MClients extends CI_Model
     }
 
     public function getClient_wx($wx_id){
-        $query = $this->db->get_where('clients',array('wx_id'=>$wx_id));
+        $query = $this->db->get_where('clients',array('wx_id'=>$wx_id, 'invalid_id'=>0));
         return $query->row_array();
     }
 
+    public function getClient_name($name){
+        $sql="select * from clients where name like ? and invalid_id = 0";
+        $query = $this->db->query($sql,array("%".$name."%"));
+        return $query->result_array();
+    }
+
     public function modifyClient(){
-        $this->load->helper('url');
-
-//        $name = url_title($this->input->post('name'),'dash',true);
-
         $data=array(
+            'wx_id' => $this->input->post('wx_id'),
             'name'=>$this->input->post('name'),
             'wx_name'=>$this->input->post('wx_name'),
             'qq'=>$this->input->post('qq'),
@@ -73,11 +74,10 @@ class MClients extends CI_Model
             'address'=>$this->input->post('address'),
             'email'=>$this->input->post('email'),
             'company'=>$this->input->post('company'),
-            'invalid_id'=>'0',
-            'recorder'=>$this->input->post('myselect'),
+            'invalid_id'=>'0'
         );
-        $wx_id = $this->input->post('wx_id');
-        return $this->db->update('clients',$data, array('wx_id' => $wx_id));
+        $id = $this->input->post('id');
+        return $this->db->update('clients',$data, array('id' => $id));
     }
 
     public function importClients(){
@@ -145,5 +145,13 @@ class MClients extends CI_Model
             return false;
         }else
             return true;
+    }
+
+
+    public function deleteClient($id){
+        $data=array(
+            'invalid_id'=>'1'
+        );
+        return $this->db->update('clients',$data, array('id' => $id));
     }
 }

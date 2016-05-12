@@ -32,14 +32,14 @@
                         <?php echo form_open('clients/search'); ?>
                         <div class="control-group">
                             <!-- Search input-->
-                            <label for="inputWxNum" class="control-label">微信号：</label>
-                            <input type="text" placeholder="请输入微信号..." class="form-control" name="wx_id"
-                                   id="inputWxNum">
-                            <p class="help-block">请正确输入用户的微信号</p>
+                            <label for="inputName" class="control-label">名称：</label>
+                            <input type="text" placeholder="请输入名称..." class="form-control" name="name"
+                                   id="inputName">
+                            <p class="help-block">请输入用户名称</p>
                         </div>
                         <button type="submit" name="submit" class="btn btn-default">查询</button>
+                        </form>
                     </div>
-                    </form>
                 </div>
             </div>
         </div>

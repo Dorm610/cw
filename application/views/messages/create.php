@@ -70,8 +70,8 @@
                             <p class="help-block">请正确输入联系电话，不能有空格或其他符号</p>
                         </div>
                         <button type="submit" name="submit" class="btn btn-default pull-right">发布</button>
+                        </form>
                     </div>
-                    </form>
                 </div>
             </div>
         </div>

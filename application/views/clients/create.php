@@ -91,8 +91,8 @@
                             <p class="help-block">请正确输入用户的公司/企业/厂矿名</p>
                         </div>
                         <button type="submit" name="submit" class="btn btn-default">创建</button>
+                        </form>
                     </div>
-                    </form>
                 </div>
             </div>
-            </div>
+        </div>

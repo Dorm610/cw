@@ -59,6 +59,7 @@ $route['clients/create'] = 'CClients/create';
 $route['clients/search'] = 'CClients/search';
 $route['clients/modify'] = 'CClients/modify';
 $route['clients/modify/(:any)'] = 'CClients/modify/$1';
+$route['clients/delete/(:any)'] = 'CClients/delete/$1';
 $route['clients/import'] = 'CClients/import';
 $route['clients/(:any)'] = 'CClients/view/$1';
 $route['clients'] = 'CClients';
