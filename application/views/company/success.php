@@ -19,30 +19,28 @@
                 <div class="col-md-6">
                     <div class="panel panel-primary">
                         <div class="panel-heading">
-                            <h3 class="panel-title">发布业务</h3>
+                            <h3 class="panel-title">创建企业</h3>
                         </div>
                         <div class="panel-body">
                             <div class="alert alert-success" role="alert">
-                                <strong>发布</strong>业务成功!<a href="<?php echo site_url('messages/create'); ?>" class="pull-right">继续发布</a>
+                                <strong>创建</strong>企业成功!<a href="<?php echo site_url('company/create'); ?>" class="pull-right">继续创建</a>
                             </div>
                         </div>
                     </div>
                 </div>
             <?php } else if ($success == 'searchall') {
-                $result = $this->mMessages->get_allmessages()
+                $result = $this->mCompany->get_allcompany()
                 ?>
                 <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12">
                     <table class="table table-bordered table-hover table-responsive table-striped">
                         <thead>
                         <tr>
                             <th>#</th>
-                            <th>标题</th>
-                            <th>内容</th>
-                            <th>信息来源</th>
-                            <th>信息各类</th>
                             <th>企业名称</th>
-                            <th>企业类型</th>
-                            <th>联系电话</th>
+                            <th>营业许可</th>
+                            <th>类型</th>
+                            <th>标识</th>
+                            <th>创建人</th>
                             <th>详细</th>
                             <th>删除</th>
                         </tr>
@@ -51,15 +49,13 @@
                         <?php foreach ($result as $row) {?>
                             <tr>
                                 <td><?php echo $row['id']?></td>
-                                <td><?php echo $row['title']?></td>
-                                <td><?php echo $row['content']?></td>
-                                <td><?php echo $row['origin']?></td>
-                                <td><?php echo $row['category']?></td>
-                                <td><?php echo ""?></td>
-                                <td><?php echo ""?></td>
-                                <td><?php echo ""?></td>
-                                <td><a href="<?php echo site_url('messages/'.$row['id']); ?>">信息页面</a></td>
-                                <td><a href="<?php echo site_url('messages/delete/'.$row['id']); ?>">删除信息</td>
+                                <td><?php echo $row['name']?></td>
+                                <td><?php echo $row['business_license']?></td>
+                                <td><?php echo $row['type']?></td>
+                                <td><?php echo $row['remark']?></td>
+                                <td><?php echo $row['recorder']?></td>
+                                <td><a href="<?php echo site_url('company/'.$row['id']); ?>">信息页面</a></td>
+                                <td><a href="<?php echo site_url('company/delete/'.$row['id']); ?>">删除企业</td>
                             </tr>
                         <?php } ?>
                         </tbody>
@@ -69,32 +65,14 @@
                 <div class="col-md-6">
                     <div class="panel panel-primary">
                         <div class="panel-heading">
-                            <h3 class="panel-title">查询业务</h3>
+                            <h3 class="panel-title">查询企业</h3>
                         </div>
                         <div class="panel-body">
                             <div class="alert alert-warning" role="alert">
-                                <strong>查询</strong>业务失败! 暂时没有业务!<a href="<?php echo site_url('messages/create'); ?>" class="pull-right">发布业务</a>
+                                <strong>查询</strong>企业失败! 暂时没有任何企业信息!<a href="<?php echo site_url('company/create'); ?>" class="pull-right">创建企业</a>
                             </div>
                         </div>
                     </div>
                 </div>
             <?php } ?>
         </div>
-<!--        <!-- 模态弹出窗内容 -->-->
-<!--        <div class="modal fade" id="mymodal-data" tabindex="-1" role="dialog" aria-labelledby="mySmallModalLabel" aria-hidden="true">-->
-<!--            <div class="modal-dialog">-->
-<!--                <div class="modal-content">-->
-<!--                    <div class="modal-header">-->
-<!--                        <button type="button" class="close" data-dismiss="modal"><span aria-hidden="true">&times;</span><span class="sr-only">Close</span></button>-->
-<!--                        <h4 class="modal-title">删除业务</h4>-->
-<!--                    </div>-->
-<!--                    <div class="modal-body">-->
-<!--                        <p>是否要删除该业务?</p>-->
-<!--                    </div>-->
-<!--                    <div class="modal-footer">-->
-<!--                        <button type="button" href="--><?php //echo site_url('messages/delete/'.$row['id']); ?><!--" class="btn btn-primary">是</button>-->
-<!--                        <button type="button" class="btn btn-default" data-dismiss="modal">否</button>-->
-<!--                    </div>-->
-<!--                </div>-->
-<!--            </div>-->
-<!--        </div>-->

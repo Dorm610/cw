@@ -70,6 +70,12 @@ $route['messages/(:any)'] = 'CMessages/view/$1';
 $route['messages'] = 'CMessages/search';
 $route['messages/delete/(:any)'] = 'CMessages/delete/$1';
 
+$route['company/create'] = 'CCompany/create';
+$route['company/search'] = 'CCompany/search';
+$route['company/(:any)'] = 'CCompany/view/$1';
+$route['company'] = 'CCompany/search';
+$route['company/delete/(:any)'] = 'CCompany/delete/$1';
+
 $route['default_controller'] = 'CClients';
 //$route['(:any)'] = 'cclients/view/$1';
 //$route['default_controller'] = 'pages/view';
