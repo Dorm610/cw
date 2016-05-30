@@ -8,7 +8,7 @@
                 <li class="active"><a href="<?php echo site_url('districts'); ?>">查询地域</a></li>
             </ul>
         </div>
-        <div class="col-xs-9 col-xs-offset-3 col-sm-10 col-sm-offset-2 col-md-11 col-md-offset-1 main">
+        <div class="main">
             <h1>欢迎访问超级矿后台管理系统</h1>
             <h2><?php echo $title; ?></h2>
             <p><a href="<?php echo site_url('districts/create'); ?>">添加新地域</a></p>

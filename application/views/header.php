@@ -92,17 +92,22 @@
 
         <div class="collapse navbar-collapse" id="navbar-collapse1">
             <ul class="nav navbar-nav">
-                <li class="active"><a>首页</a></li>
-                <li><a href="clients/create">功能</a></li>
-                <li><a>设置</a></li>
+                <li><a href="<?php echo site_url('clients/create'); ?>">创建用户</a></li>
+                <li><a href="<?php echo site_url('clients/import'); ?>">批量导入</a></li>
+                <li><a href="<?php echo site_url('clients/search'); ?>">查询用户</a></li>
+                <li><a href="<?php echo site_url('clients/search'); ?>">修改用户</a></li>
+                <li><a href="<?php echo site_url('messages/create'); ?>">发布业务</a></li>
+                <li><a href="<?php echo site_url('messages/search'); ?>">查询业务</a></li>
+                <li><a href="<?php echo site_url('company/create'); ?>">创建企业</a></li>
+                <li><a href="<?php echo site_url('company/search'); ?>">查询企业</a></li>
             </ul>
-            <form class="navbar-form navbar-right" role="search">
-                <div class="form-group">
-                    <input type="text" class="form-control" placeholder="用户名...">
-                    <input type="password" class="form-control" placeholder="密码...">
-                </div>
-                <button type="submit" class="btn btn-default">登陆</button>
-            </form>
+<!--            <form class="navbar-form navbar-right" role="search">-->
+<!--                <div class="form-group">-->
+<!--                    <input type="text" class="form-control" placeholder="用户名...">-->
+<!--                    <input type="password" class="form-control" placeholder="密码...">-->
+<!--                </div>-->
+<!--                <button type="submit" class="btn btn-default">登陆</button>-->
+<!--            </form>-->
         </div>
     </div>
 </nav>

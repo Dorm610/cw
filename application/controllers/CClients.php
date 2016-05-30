@@ -124,11 +124,9 @@ class CClients extends CI_Controller
         if (isset($id)){
             $data['id'] = $id;
         }
-//        print_r($data);
-        echo "***";
+
         if ($this->form_validation->run() === false){
             //验证不通过，重新载入
-            print_r($data);
             $this->load->view('header',$data);
             $this->load->view('clients/modify', $data);
             $this->load->view('footer',$data);

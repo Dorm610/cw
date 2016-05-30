@@ -8,7 +8,7 @@
                 <li><a href="<?php echo site_url('districts'); ?>">查询地域</a></li>
             </ul>
         </div>
-        <div class="col-xs-9 col-xs-offset-3 col-sm-10 col-sm-offset-2 col-md-11 col-md-offset-1 main">
+        <div class="main">
             <?php echo validation_errors(); ?>
             <div class="col-md-6">
                 <div class="panel panel-primary">
