@@ -53,7 +53,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 //$route['404_override'] = '';
 //$route['translate_uri_dashes'] = FALSE;
 
-$route['districts'] = 'CDistricts';
+$route['districts'] = 'CDistricts/test';
 
 $route['clients/create'] = 'CClients/create';
 $route['clients/search'] = 'CClients/search';

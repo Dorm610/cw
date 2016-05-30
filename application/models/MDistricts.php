@@ -59,4 +59,6 @@ class MDistricts  extends CI_Model
 
         return $this->db->insert('districts',$data);
     }
+
+
 }

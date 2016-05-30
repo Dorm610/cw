@@ -29,8 +29,8 @@ class CDistricts extends CI_Controller
 }
 
     /**
-     * 获取一个客户表单数据
-     */
+ * 获取一个客户表单数据
+ */
     public function create(){
         $this->load->helper('form');
         $this->load->library('form_validation');
@@ -64,6 +64,20 @@ class CDistricts extends CI_Controller
                 $this->load->view('footer', $data);
             }
         }
+
+    }
+
+    /**
+     * 获取一个客户表单数据
+     */
+    public function test(){
+
+//        $data['districts']=$this->mDistricts->getDistricts();
+        $data['title']='地域信息获取';
+        $data['base_url']=base_url();
+//        $this->load->view('header',$data);
+        $this->load->view('districts/test',$data);
+//        $this->load->view('footer',$data);
 
     }
 
