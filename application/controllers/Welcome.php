@@ -18,17 +18,19 @@ class Welcome extends CI_Controller {
 	 * map to /index.php/welcome/<method_name>
 	 * @see https://codeigniter.com/user_guide/general/urls.html
 	 */
+
+	public function __construct()
+	{
+		parent::__construct();
+		$this->load->model('clientdal');
+		$this->load->helper('url_helper');
+		$this->load->helper('url');
+	}
+
 	public function index()
 	{
-		// print_r($_POST['']);
-
 		$data['base_url']=base_url();
-
-		$this->load->model('clientdal');
-		$InfoList = $this->clientdal->GetClientList();
-		print_r($InfoList);
-
-		// $this->load->view('welcome_message');
-		$this->load->view('clients_page');
+		$this->load->view('WEUI/header',$data);
+		$this->load->view('WEUI/index');
 	}
 }

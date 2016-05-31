@@ -64,7 +64,7 @@ class MClients extends CI_Model
         return $query->result_array();
     }
 
-    public function modifyClient(){
+    public function modifyClient($wx_id){
         $data=array(
             'wx_id' => $this->input->post('wx_id'),
             'name'=>$this->input->post('name'),
@@ -76,7 +76,7 @@ class MClients extends CI_Model
             'company'=>$this->input->post('company'),
             'invalid_id'=>'0'
         );
-        $id = $this->input->post('id');
+        $id = $wx_id;
         return $this->db->update('clients',$data, array('id' => $id));
     }
 

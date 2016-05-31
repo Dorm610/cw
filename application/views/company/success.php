@@ -28,9 +28,7 @@
                         </div>
                     </div>
                 </div>
-            <?php } else if ($success == 'searchall') {
-                $result = $this->mCompany->get_allcompany()
-                ?>
+            <?php } else if ($success == 'searchall') {?>
                 <div>
                     <table class="table table-bordered table-hover table-responsive table-striped">
                         <thead>

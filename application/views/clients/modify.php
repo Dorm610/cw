@@ -5,7 +5,6 @@
  * Date: 16/4/25
  * Time: 下午11:45
  */
-    $result = $this->mClients->getClients($id);
 ?>
 
 <div class="container-fluid">

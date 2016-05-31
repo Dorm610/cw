@@ -70,7 +70,7 @@ class MMessages extends CI_Model
         $data=array(
             'invalid_id'=>'1'
         );
-        $this->db->update('messages',$data, array('id' => $id));
+        return $this->db->update('messages',$data, array('id' => $id));
     }
 
 }

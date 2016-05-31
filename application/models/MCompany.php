@@ -73,7 +73,7 @@ class MCompany extends CI_Model
         $data=array(
             'invalid_id'=>'1'
         );
-        $this->db->update('client_company',$data, array('id' => $id));
+        return $this->db->update('client_company',$data, array('id' => $id));
     }
 
 }

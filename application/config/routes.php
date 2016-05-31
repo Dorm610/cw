@@ -76,7 +76,24 @@ $route['company/(:any)'] = 'CCompany/view/$1';
 $route['company'] = 'CCompany/search';
 $route['company/delete/(:any)'] = 'CCompany/delete/$1';
 
-$route['default_controller'] = 'CClients';
+$route['default_controller'] = 'Welcome';
+
+$route['WEUI/clients/create'] = 'CClients/createForWEUI';
+$route['WEUI/clients/import'] = 'CClients/importForWEUI';
+$route['WEUI/clients/search'] = 'CClients/searchForWEUI';
+$route['WEUI/clients/modify/(:any)'] = 'CClients/modifyForWEUI/$1';
+$route['WEUI/clients/delete/(:any)'] = 'CClients/deleteForWEUI/$1';
+$route['WEUI/clients/view/(:any)'] = 'CClients/viewForWEUI/$1';
+
+$route['WEUI/company/create'] = 'CCompany/createForWEUI';
+$route['WEUI/company/search'] = 'CCompany/searchForWEUI';
+$route['WEUI/company/delete/(:any)'] = 'CCompany/deleteForWEUI/$1';
+$route['WEUI/company/view/(:any)'] = 'CCompany/viewForWEUI/$1';
+
+$route['WEUI/messages/create'] = 'CMessages/createForWEUI';
+$route['WEUI/messages/search'] = 'CMessages/searchForWEUI';
+$route['WEUI/messages/delete/(:any)'] = 'CMessages/deleteForWEUI/$1';
+$route['WEUI/messages/view/(:any)'] = 'CMessages/viewForWEUI/$1';
 //$route['(:any)'] = 'cclients/view/$1';
 //$route['default_controller'] = 'pages/view';
 //$route['(:any)'] = 'pages/view/$1';

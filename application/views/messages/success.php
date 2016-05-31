@@ -28,9 +28,7 @@
                         </div>
                     </div>
                 </div>
-            <?php } else if ($success == 'searchall') {
-                $result = $this->mMessages->get_allmessages()
-                ?>
+            <?php } else if ($success == 'searchall') {?>
                 <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12">
                     <table class="table table-bordered table-hover table-responsive table-striped">
                         <thead>

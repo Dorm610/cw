@@ -66,6 +66,8 @@ class CCompany extends CI_Controller
 
         if ($this->mCompany->exist_company()){
             $data['success'] = 'searchall';
+            $result = $this->mCompany->get_allcompany();
+            $data['result'] = $result;
             $this->load->view('header', $data);
             $this->load->view('company/success', $data);
             $this->load->view('footer', $data);
@@ -120,6 +122,95 @@ class CCompany extends CI_Controller
             $this->load->view('header', $data);
             $this->load->view('company/success', $data);
             $this->load->view('footer', $data);
+        }
+    }
+
+    /**
+     * 微信样式 创建公司
+     */
+    public function createForWEUI(){
+        $this->load->helper('form');
+        $this->load->library('form_validation');
+
+        $data['title']='Create a new company';
+        $data['base_url']=base_url();
+        // 为表单设置验证规则，如果不填，数据库值为''，而不是NULL
+        $this->form_validation->reset_validation();
+        $this->form_validation->set_rules('name','Name','required');
+
+        if ($this->form_validation->run() === false){
+            //验证不通过，重新载入
+            $this->load->view('WEUI/header',$data);
+            $this->load->view('WEUI/company/create');
+        }else{
+            $data['success'] = 'create';
+            $this->mCompany->set_company(); //保存数据
+            $this->load->view('WEUI/header', $data);
+            $this->load->view('WEUI/company/success'); //跳转页面
+        }
+    }
+
+    /**
+     * 微信样式 查询公司
+     */
+    public function searchForWEUI(){
+        $this->load->helper('form');
+//        $this->load->library('form_validation');
+
+        $data['title']='Search a new company';
+        $data['base_url']=base_url();
+        /**
+         * 暂时为可查询到全部公司 后期可添加表单查询
+         */
+
+        if ($this->mCompany->exist_company()){
+            $data['success'] = 'searchall';
+            $result = $this->mCompany->get_allcompany();
+            $data['result'] = $result;
+            $this->load->view('WEUI/header', $data);
+            $this->load->view('WEUI/company/success', $data);
+        }
+        else {
+            $data['success'] = 'searchfail';
+            $this->load->view('WEUI/header', $data);
+            $this->load->view('WEUI/company/success', $data);
+        }
+    }
+
+    /**
+     * 微信样式 显示某个公司的详细数据
+     * @param null $id 业务id
+     */
+    public function viewForWEUI($id=null){
+
+        $data['company']=$this->mCompany->get_company($id);
+        $data['base_url']=base_url();
+        if (empty($data['company'])) {
+            echo 'wtf no such company:'.$id;
+            show_404();
+        }
+
+        $this->load->view('WEUI/header',$data);
+        $this->load->view('WEUI/company/view',$data);
+    }
+
+    /**
+     * 微信样式 删除个公司的详细数据 将invalid_id设成1
+     * @param null $id 业务id
+     */
+    public function deleteForWEUI($id){
+        $data['title']='Search a new company';
+        $data['base_url']=base_url();
+
+        if ($this->mCompany->delete_company($id)){
+            $data['success'] = 'delete';
+            $this->load->view('WEUI/header', $data);
+            $this->load->view('WEUI/company/success', $data);
+        }
+        else {
+            $data['success'] = 'delete_fail';
+            $this->load->view('WEUI/header', $data);
+            $this->load->view('WEUI/company/success', $data);
         }
     }
 }
