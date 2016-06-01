@@ -340,17 +340,18 @@ class CClients extends CI_Controller
         // 为表单设置验证规则，如果不填，数据库值为''，而不是NULL
         $this->form_validation->reset_validation();
         $this->form_validation->set_rules('name','Name','required');
-        if (isset($id)){
-            $data['id'] = $id;
-            $data['result'] = $this->mClients->getClients($id);
-        }
+
         if ($this->form_validation->run() === false){
+            if (isset($id)){
+                $data['id'] = $id;
+                $data['result'] = $this->mClients->getClients($id);
+            }
             //验证不通过，重新载入
             $this->load->view('WEUI/header',$data);
             $this->load->view('WEUI/clients/modify', $data);
         }else{
             if ($this->mClients->modifyClient($id)){ //保存数据
-                $data['success'] = 'modify_fail';
+                $data['success'] = 'modify';
             }else{
                 $data['success'] = 'modify_fail';
             }

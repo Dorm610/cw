@@ -32,6 +32,25 @@
                     <div class="panel-body">
                         <!--创建表单-->
                         <?php echo form_open('clients/modify/'.$id); ?>
+                        <label for="inputer" class="control-label">客户性质：</label>
+                        <select name="myselect1" id="inputer">
+                            <option value="未知" <?php echo  set_select('myselect1', '1', $result['role_id']=='未知'?TRUE:FALSE); ?> >未知</option>
+                            <option value="厂矿" <?php echo  set_select('myselect1', '2', $result['role_id']=='厂矿'?TRUE:FALSE); ?> >厂矿</option>
+                            <option value="供应商" <?php echo  set_select('myselect1', '3', $result['role_id']=='供应商'?TRUE:FALSE); ?> >供应商</option>
+                            <option value="物流公司" <?php echo  set_select('myselect1', '4', $result['role_id']=='物流公司'?TRUE:FALSE); ?> >物流公司</option>
+                        </select>
+                        <label for="inputer" class="control-label">货物类型：</label>
+                        <select name="myselect2" id="inputer">
+                            <option value="未知" <?php echo  set_select('myselect2', '1', $result['product_id']=='未知'?TRUE:FALSE); ?> >未知</option>
+                            <option value="原煤" <?php echo  set_select('myselect2', '2', $result['product_id']=='原煤'?TRUE:FALSE); ?> >原煤</option>
+                            <option value="块煤" <?php echo  set_select('myselect2', '3', $result['product_id']=='块煤'?TRUE:FALSE); ?> >块煤</option>
+                            <option value="煨煤" <?php echo  set_select('myselect2', '4', $result['product_id']=='煨煤'?TRUE:FALSE); ?> >煨煤</option>
+                            <option value="动力煤" <?php echo  set_select('myselect2', '5', $result['product_id']=='动力煤'?TRUE:FALSE); ?> >动力煤</option>
+                            <option value="一精煤" <?php echo  set_select('myselect2', '6', $result['product_id']=='一精煤'?TRUE:FALSE); ?> >一精煤</option>
+                            <option value="二精煤" <?php echo  set_select('myselect2', '7', $result['product_id']=='二精煤'?TRUE:FALSE); ?> >二精煤</option>
+                            <option value="洗选煤" <?php echo  set_select('myselect2', '8', $result['product_id']=='洗选煤'?TRUE:FALSE); ?> >洗选煤</option>
+                            <option value="其他" <?php echo  set_select('myselect2', '9', $result['product_id']=='其他'?TRUE:FALSE); ?> >其他</option>
+                        </select>
                         <div class="control-group">
                             <!-- Search input-->
                             <label for="inputName" class="control-label">用户名：</label>
@@ -87,6 +106,20 @@
                             <input type="text" placeholder="公司/企业/厂矿名..." class="form-control" name="company"
                                    id="inputCompany" value="<?php echo $result['company']?>">
                             <p class="help-block">请正确输入用户的公司/企业/厂矿名</p>
+                        </div>
+                        <div class="control-group">
+                            <!-- Search input-->
+                            <label for="inputPosition" class="control-label">职位：</label>
+                            <input type="text" placeholder="职位..." class="form-control" name="position"
+                                   id="inputPosition" value="<?php echo $result['position']?>">
+                            <p class="help-block">请正确输入用户的职位</p>
+                        </div>
+                        <div class="control-group">
+                            <!-- Search input-->
+                            <label for="inputLinephone" class="control-label">固定电话：</label>
+                            <input type="text" placeholder="固定电话..." class="form-control" name="linephone"
+                                   id="inputLinephone" value="<?php echo $result['linephone']?>">
+                            <p class="help-block">请正确输入用户的固定电话</p>
                         </div>
                         <input type="text" name="id" class="hide form-group" value="<?php echo $result['id']?>">
                         <button type="submit" name="submit" class="btn btn-default">修改</button>

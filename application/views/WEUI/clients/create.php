@@ -31,6 +31,33 @@
                         </select>
                     </div>
                 </div>
+                <div class="weui_cell weui_cell_select weui_select_after">
+                    <div class="weui_cell_hd"><label class="weui_label">客户性质</label></div>
+                    <div class="weui_cell_bd">
+                        <select class="weui_select" name="myselect1">
+                            <option value="未知" <?php echo  set_select('myselect1', '1', TRUE); ?> >未知</option>
+                            <option value="厂矿" <?php echo  set_select('myselect1', '2'); ?> >厂矿</option>
+                            <option value="供应商" <?php echo  set_select('myselect1', '3'); ?> >供应商</option>
+                            <option value="物流公司" <?php echo  set_select('myselect1', '4'); ?> >物流公司</option>
+                        </select>
+                    </div>
+                </div>
+                <div class="weui_cell weui_cell_select weui_select_after">
+                    <div class="weui_cell_hd"><label class="weui_label">货物类型</label></div>
+                    <div class="weui_cell_bd">
+                        <select class="weui_select" name="myselect2">
+                            <option value="未知" <?php echo  set_select('myselect2', '1', TRUE); ?> >未知</option>
+                            <option value="原煤" <?php echo  set_select('myselect2', '2'); ?> >原煤</option>
+                            <option value="块煤" <?php echo  set_select('myselect2', '3'); ?> >块煤</option>
+                            <option value="煨煤" <?php echo  set_select('myselect2', '4'); ?> >煨煤</option>
+                            <option value="动力煤" <?php echo  set_select('myselect2', '5'); ?> >动力煤</option>
+                            <option value="一精煤" <?php echo  set_select('myselect2', '6'); ?> >一精煤</option>
+                            <option value="二精煤" <?php echo  set_select('myselect2', '7'); ?> >二精煤</option>
+                            <option value="洗选煤" <?php echo  set_select('myselect2', '8'); ?> >洗选煤</option>
+                            <option value="其他" <?php echo  set_select('myselect2', '9'); ?> >其他</option>
+                        </select>
+                    </div>
+                </div>
                 <div class="weui_cell">
                     <div class="weui_cell_hd"><label class="weui_label">用户名</label></div>
                     <div class="weui_cell_bd weui_cell_primary">
@@ -77,6 +104,18 @@
                     <div class="weui_cell_hd"><label class="weui_label">企业名</label></div>
                     <div class="weui_cell_bd weui_cell_primary">
                         <input class="weui_input" name="company" placeholder="请输入企业名"/>
+                    </div>
+                </div>
+                <div class="weui_cell">
+                    <div class="weui_cell_hd"><label class="weui_label">职位</label></div>
+                    <div class="weui_cell_bd weui_cell_primary">
+                        <input class="weui_input" name="position" placeholder="请输入职位"/>
+                    </div>
+                </div>
+                <div class="weui_cell">
+                    <div class="weui_cell_hd"><label class="weui_label">固定电话</label></div>
+                    <div class="weui_cell_bd weui_cell_primary">
+                        <input class="weui_input" name="linephone" placeholder="请输入固定电话"/>
                     </div>
                 </div>
                 <div class="weui_btn_area">

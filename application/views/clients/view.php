@@ -60,6 +60,22 @@
                     <td><?php echo $client['company']?></td>
                 </tr>
                 <tr>
+                    <td>职位</td>
+                    <td><?php echo $client['position']?></td>
+                </tr>
+                <tr>
+                    <td>固定电话</td>
+                    <td><?php echo $client['linephone']?></td>
+                </tr>
+                <tr>
+                    <td>客户性质</td>
+                    <td><?php echo $client['role_id']?></td>
+                </tr>
+                <tr>
+                    <td>货物类型</td>
+                    <td><?php echo $client['product_id']?></td>
+                </tr>
+                <tr>
                     <td>创建时间</td>
                     <td><?php echo $client['record_time']?></td>
                 </tr>

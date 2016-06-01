@@ -38,7 +38,11 @@ class MClients extends CI_Model
             'email'=>$this->input->post('email'),
             'company'=>$this->input->post('company'),
             'invalid_id'=>'0',
-            'recorder'=>$this->input->post('myselect')
+            'recorder'=>$this->input->post('myselect'),
+            'position'=>$this->input->post('position'),
+            'linephone'=>$this->input->post('linephone'),
+            'role_id'=>$this->input->post('myselect1'),
+            'product_id'=>$this->input->post('myselect2')
         );
 
         return $this->db->insert('clients',$data);
@@ -74,7 +78,11 @@ class MClients extends CI_Model
             'address'=>$this->input->post('address'),
             'email'=>$this->input->post('email'),
             'company'=>$this->input->post('company'),
-            'invalid_id'=>'0'
+            'invalid_id'=>'0',
+            'position'=>$this->input->post('position'),
+            'linephone'=>$this->input->post('linephone'),
+            'role_id'=>$this->input->post('myselect1'),
+            'product_id'=>$this->input->post('myselect2')
         );
         $id = $wx_id;
         return $this->db->update('clients',$data, array('id' => $id));
@@ -112,6 +120,10 @@ class MClients extends CI_Model
                         'address'=>$row['F'],
                         'email'=>$row['G'],
                         'company'=>$row['H'],
+                        'position'=>$row['I'],
+                        'linephone'=>$row['J'],
+                        'role_id'=>$row['K'],
+                        'product_id'=>$row['L'],
                         'invalid_id'=>'0',
                     );
                     array_push($updateData, $temp0);
@@ -126,6 +138,10 @@ class MClients extends CI_Model
                     'address'=>$row['F'],
                     'email'=>$row['G'],
                     'company'=>$row['H'],
+                    'position'=>$row['I'],
+                    'linephone'=>$row['J'],
+                    'role_id'=>$row['K'],
+                    'product_id'=>$row['L'],
                     'invalid_id'=>'0',
                 );
                 array_push($insertData, $temp1);

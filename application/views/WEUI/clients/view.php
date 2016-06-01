@@ -28,6 +28,18 @@
                 </div>
                 <div class="weui_cell">
                     <div class="weui_cell_bd weui_cell_primary">
+                        <p>客户性质</p>
+                    </div>
+                    <div class="weui_cell_ft"><?php echo $client['role_id']?></div>
+                </div>
+                <div class="weui_cell">
+                    <div class="weui_cell_bd weui_cell_primary">
+                        <p>货物类型</p>
+                    </div>
+                    <div class="weui_cell_ft"><?php echo $client['product_id']?></div>
+                </div>
+                <div class="weui_cell">
+                    <div class="weui_cell_bd weui_cell_primary">
                         <p>微信号</p>
                     </div>
                     <div class="weui_cell_ft"><?php echo $client['wx_id']?></div>
@@ -61,6 +73,18 @@
                         <p>企业名</p>
                     </div>
                     <div class="weui_cell_ft"><?php echo $client['company']?></div>
+                </div>
+                <div class="weui_cell">
+                    <div class="weui_cell_bd weui_cell_primary">
+                        <p>职位</p>
+                    </div>
+                    <div class="weui_cell_ft"><?php echo $client['position']?></div>
+                </div>
+                <div class="weui_cell">
+                    <div class="weui_cell_bd weui_cell_primary">
+                        <p>固定电话</p>
+                    </div>
+                    <div class="weui_cell_ft"><?php echo $client['linephone']?></div>
                 </div>
                 <div class="weui_cell">
                     <div class="weui_cell_bd weui_cell_primary">

@@ -36,6 +36,25 @@
                             <option value="荀辰龙" <?php echo  set_select('myselect', '8'); ?> >荀辰龙</option>
                             <option value="王超一" <?php echo  set_select('myselect', '9'); ?> >王超一</option>
                         </select>
+                        <label for="inputer" class="control-label">客户性质：</label>
+                        <select name="myselect1" id="inputer">
+                            <option value="未知" <?php echo  set_select('myselect1', '1', TRUE); ?> >未知</option>
+                            <option value="厂矿" <?php echo  set_select('myselect1', '2'); ?> >厂矿</option>
+                            <option value="供应商" <?php echo  set_select('myselect1', '3'); ?> >供应商</option>
+                            <option value="物流公司" <?php echo  set_select('myselect1', '4'); ?> >物流公司</option>
+                        </select>
+                        <label for="inputer" class="control-label">货物类型：</label>
+                        <select name="myselect2" id="inputer">
+                            <option value="未知" <?php echo  set_select('myselect2', '1', TRUE); ?> >未知</option>
+                            <option value="原煤" <?php echo  set_select('myselect2', '2'); ?> >原煤</option>
+                            <option value="块煤" <?php echo  set_select('myselect2', '3'); ?> >块煤</option>
+                            <option value="煨煤" <?php echo  set_select('myselect2', '4'); ?> >煨煤</option>
+                            <option value="动力煤" <?php echo  set_select('myselect2', '5'); ?> >动力煤</option>
+                            <option value="一精煤" <?php echo  set_select('myselect2', '6'); ?> >一精煤</option>
+                            <option value="二精煤" <?php echo  set_select('myselect2', '7'); ?> >二精煤</option>
+                            <option value="洗选煤" <?php echo  set_select('myselect2', '8'); ?> >洗选煤</option>
+                            <option value="其他" <?php echo  set_select('myselect2', '9'); ?> >其他</option>
+                        </select>
                         <div class="control-group">
                             <!-- Search input-->
                             <label for="inputName" class="control-label">用户名：</label>
@@ -91,6 +110,20 @@
                             <input type="text" placeholder="公司/企业/厂矿名..." class="form-control" name="company"
                                    id="inputCompany">
                             <p class="help-block">请正确输入用户的公司/企业/厂矿名</p>
+                        </div>
+                        <div class="control-group">
+                            <!-- Search input-->
+                            <label for="inputPosition" class="control-label">职位：</label>
+                            <input type="text" placeholder="职位..." class="form-control" name="position"
+                                   id="inputPosition">
+                            <p class="help-block">请正确输入用户的职位</p>
+                        </div>
+                        <div class="control-group">
+                            <!-- Search input-->
+                            <label for="inputLinephone" class="control-label">固定电话：</label>
+                            <input type="text" placeholder="固定电话..." class="form-control" name="linephone"
+                                   id="inputLinephone">
+                            <p class="help-block">请正确输入用户的固定电话</p>
                         </div>
                         <button type="submit" name="submit" class="btn btn-default">创建</button>
                         </form>

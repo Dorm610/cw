@@ -15,6 +15,33 @@
         <div class="bd">
             <?php echo form_open('WEUI/clients/modify/'.$id); ?>
             <div class="weui_cells">
+                <div class="weui_cell weui_cell_select weui_select_after">
+                    <div class="weui_cell_hd"><label class="weui_label">客户性质</label></div>
+                    <div class="weui_cell_bd">
+                        <select class="weui_select" name="myselect1">
+                            <option value="未知" <?php echo  set_select('myselect1', '1', $result['role_id']=='未知'?TRUE:FALSE); ?> >未知</option>
+                            <option value="厂矿" <?php echo  set_select('myselect1', '2', $result['role_id']=='厂矿'?TRUE:FALSE); ?> >厂矿</option>
+                            <option value="供应商" <?php echo  set_select('myselect1', '3', $result['role_id']=='供应商'?TRUE:FALSE); ?> >供应商</option>
+                            <option value="物流公司" <?php echo  set_select('myselect1', '4', $result['role_id']=='物流公司'?TRUE:FALSE); ?> >物流公司</option>
+                        </select>
+                    </div>
+                </div>
+                <div class="weui_cell weui_cell_select weui_select_after">
+                    <div class="weui_cell_hd"><label class="weui_label">货物类型</label></div>
+                    <div class="weui_cell_bd">
+                        <select class="weui_select" name="myselect2">
+                            <option value="未知" <?php echo  set_select('myselect2', '1', $result['product_id']=='未知'?TRUE:FALSE); ?> >未知</option>
+                            <option value="原煤" <?php echo  set_select('myselect2', '2', $result['product_id']=='原煤'?TRUE:FALSE); ?> >原煤</option>
+                            <option value="块煤" <?php echo  set_select('myselect2', '3', $result['product_id']=='块煤'?TRUE:FALSE); ?> >块煤</option>
+                            <option value="煨煤" <?php echo  set_select('myselect2', '4', $result['product_id']=='煨煤'?TRUE:FALSE); ?> >煨煤</option>
+                            <option value="动力煤" <?php echo  set_select('myselect2', '5', $result['product_id']=='动力煤'?TRUE:FALSE); ?> >动力煤</option>
+                            <option value="一精煤" <?php echo  set_select('myselect2', '6', $result['product_id']=='一精煤'?TRUE:FALSE); ?> >一精煤</option>
+                            <option value="二精煤" <?php echo  set_select('myselect2', '7', $result['product_id']=='二精煤'?TRUE:FALSE); ?> >二精煤</option>
+                            <option value="洗选煤" <?php echo  set_select('myselect2', '8', $result['product_id']=='洗选煤'?TRUE:FALSE); ?> >洗选煤</option>
+                            <option value="其他" <?php echo  set_select('myselect2', '9', $result['product_id']=='其他'?TRUE:FALSE); ?> >其他</option>
+                        </select>
+                    </div>
+                </div>
                 <div class="weui_cell">
                     <div class="weui_cell_hd"><label class="weui_label">编号</label></div>
                     <div class="weui_cell_bd weui_cell_primary">
@@ -67,6 +94,18 @@
                     <div class="weui_cell_hd"><label class="weui_label">企业名</label></div>
                     <div class="weui_cell_bd weui_cell_primary">
                         <input class="weui_input" name="company" placeholder="请输入企业名" value="<?php echo $result['company']?>"/>
+                    </div>
+                </div>
+                <div class="weui_cell">
+                    <div class="weui_cell_hd"><label class="weui_label">职位</label></div>
+                    <div class="weui_cell_bd weui_cell_primary">
+                        <input class="weui_input" name="position" placeholder="请输入职位" value="<?php echo $result['position']?>"/>
+                    </div>
+                </div>
+                <div class="weui_cell">
+                    <div class="weui_cell_hd"><label class="weui_label">固定电话</label></div>
+                    <div class="weui_cell_bd weui_cell_primary">
+                        <input class="weui_input" name="linephone" placeholder="请输入固定电话" value="<?php echo $result['linephone']?>"/>
                     </div>
                 </div>
                 <div class="weui_btn_area">
