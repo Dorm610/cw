@@ -1,10 +1,10 @@
-function Area(selector){
+function Area(selector){ //构造体
     if(!Area.ALL_AREAS){
         throw new Error('areas not init！');
     }
 
     this.selector = selector;
-    $(this.selector).html('<select/><select/><select/>');
+    $(this.selector).html('<select name="province" id="province"/> <select name="city" id="city"/> <select name="county" id="county"/>');
     var $province = this._getElement(Area.type.PROVINCE);
     var $city = this._getElement(Area.type.CITY);
     var $county = this._getElement(Area.type.COUNTY);
@@ -24,7 +24,7 @@ function Area(selector){
     this.select();
 }
 
-$.extend(Area, {
+$.extend(Area, { //静态方法
     ALL_AREAS : null,
     type : {
         PROVINCE : 0,

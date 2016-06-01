@@ -1,152 +1,138 @@
 
-<div class="container-fluid">
-    <div class="row">
-        <div class="col-xs-3 col-sm-2 col-md-1 sidebar">
-            <ul class="nav nav-sidebar">
-                <li><a href="<?php echo site_url('clients'); ?>">首页</a></li>
-                <li class="active"><a href="<?php echo site_url('districts/create'); ?>">创建地域</a></li>
-                <li><a href="<?php echo site_url('districts'); ?>">查询地域</a></li>
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+    <meta charset="utf-8">
+    <!-- Title and other stuffs -->
+    <title>超级矿资源</title>
+    <!--	这句必须加，否则ci会定位不到css和js文件-->
+    <base href = "<?php echo $base_url;?>"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link href="css/bootstrap.min.css" rel="stylesheet">
+
+    <!--[if lt IE 9]>
+    <script src="js/html5shiv.js"></script>
+    <script src="js/respond.min.js"></script>
+    <script type="text/javascript" src="js/jquery-1.4.2.js"></script>
+    <script type="text/javascript" src="js/area.js"></script>
+    <![endif]-->
+    <style>
+        body {
+            padding-top: 50px;
+            padding-bottom: 40px;
+            color: #5a5a5a;
+        }
+
+        .sidebar {
+            width: auto;
+            position: fixed;
+            float: left;
+            top: 51px;
+            bottom: 0;
+            left: 0;
+            z-index: 1000;
+            display: block;
+            padding: 20px;
+            overflow-x: hidden;
+            overflow-y: auto;
+            background-color: #ddd;
+            border-right: 1px solid #eee;
+        }
+
+        .nav-sidebar {
+            margin-right: -21px;
+            margin-bottom: 20px;
+            margin-left: -20px;
+        }
+
+        .nav-sidebar > li > a {
+            padding-right: 20px;
+            padding-left: 20px;
+        }
+
+        .nav-sidebar > .active > a,
+        .nav-sidebar > .active > a:hover,
+        .nav-sidebar > .active > a:focus {
+            color: #fff;
+            background-color: #428bca;
+        }
+
+        .main {
+            padding: 20px;
+        }
+
+        .main .page-header {
+            margin-top: 0;
+        }
+    </style>
+
+</head>
+
+<body>
+<nav class="navbar navbar-default navbar-inverse navbar-fixed-top" role="navigation">
+    <div class="container-fluid">
+        <div class="navbar-header">
+            <button type="button" class="navbar-toggle collapsed" data-toggle="collapse"
+                    data-target="#navbar-collapse1">
+                <span class="sr-only">Toggle navigation</span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+            </button>
+            <a class="navbar-brand">超级矿资源</a>
+        </div>
+
+        <div class="collapse navbar-collapse" id="navbar-collapse1">
+            <ul class="nav navbar-nav">
+                <li><a href="<?php echo site_url('clients/create'); ?>">创建用户</a></li>
+                <li><a href="<?php echo site_url('clients/import'); ?>">批量导入</a></li>
+                <li><a href="<?php echo site_url('clients/search'); ?>">查询用户</a></li>
+                <li><a href="<?php echo site_url('clients/search'); ?>">修改用户</a></li>
+                <li><a href="<?php echo site_url('messages/create'); ?>">发布业务</a></li>
+                <li><a href="<?php echo site_url('messages/search'); ?>">查询业务</a></li>
+                <li><a href="<?php echo site_url('company/create'); ?>">创建企业</a></li>
+                <li><a href="<?php echo site_url('company/search'); ?>">查询企业</a></li>
             </ul>
         </div>
+    </div>
+</nav>
+<div class="container-fluid">
+    <div class="row">
         <div class="main">
             <?php echo validation_errors(); ?>
             <div class="col-md-6">
                 <div class="panel panel-primary">
                     <div class="panel-heading">
-                        <h3 class="panel-title">定义地域</h3>
+                        <h3 class="panel-title">创建地域信息</h3>
                     </div>
                     <div class="panel-body">
                         <!--创建表单-->
-<!--                        --><?php //echo form_open('districts/create'); ?>
-<!--                        <label for="inputer" class="control-label">创建人：</label>-->
-<!--                        <select name="myselect" id="inputer">-->
-<!--                            <option value="刘宝键" --><?php //echo  set_select('myselect', '1', TRUE); ?><!-- >刘宝键</option>-->
-<!--                            <option value="刘启梦" --><?php //echo  set_select('myselect', '2'); ?><!-- >刘启梦</option>-->
-<!--                            <option value="王泉森" --><?php //echo  set_select('myselect', '3'); ?><!-- >王泉森</option>-->
-<!--                            <option value="王端阳" --><?php //echo  set_select('myselect', '4'); ?><!-- >王端阳</option>-->
-<!--                            <option value="任祯" --><?php //echo  set_select('myselect', '5'); ?><!-- >任祯</option>-->
-<!--                            <option value="刘宣" --><?php //echo  set_select('myselect', '6'); ?><!-- >刘宣</option>-->
-<!--                            <option value="李拥政" --><?php //echo  set_select('myselect', '7'); ?><!-- >李拥政</option>-->
-<!--                            <option value="荀辰龙" --><?php //echo  set_select('myselect', '8'); ?><!-- >荀辰龙</option>-->
-<!--                            <option value="王超一" --><?php //echo  set_select('myselect', '9'); ?><!-- >王超一</option>-->
-<!--                        </select>-->
-<!--                       -->
-<!--                        <button type="submit" name="submit" class="btn btn-default">创建</button>-->
-<!--                        </form>-->
-
-
-                        <?php
-                        $data['province_selected'] = $address['province_id'];
-                        $data['city_selected'] = $address['city_id'];
-                        $data['district_selected'] = $address['district_id'];
-                        $this->load->view('district_select',$data);
-                        ?>
-
-                        <?php
-                        $CI = get_instance();
-                        $CI->load->model('region_model', 'region');
-                        $provinces   = $CI->region->provinces();
-                        $citys = $CI->region->children_of($province_selected);
-                        ?>
-                        <script  language="JavaScript">
-
-
-                            <?php if(isset($province_selected)):?>
-                            var province_selected = <?php echo (int)$province_selected?>;
-                            <?php else:?>
-                            var province_selected = 0;
-                            <?php endif?>
-
-                            <?php if(isset($city_selected)):?>
-                            var city_selected = <?php echo (int)$city_selected?>;
-                            <?php else:?>
-                            var city_selected = 0;
-                            <?php endif?>
-
-                            <?php if(isset($district_selected)):?>
-                            var district_selected = <?php echo (int)$district_selected?>;
-                            <?php else:?>
-                            var district_selected = 0;
-                            <?php endif?>
-
-                            $(document).ready(function() {
-
-                                var change_city = function(){
-                                    $.ajax({
-                                        url: '<?php echo  ITURL.'/admin.php/region_change/select_children/parent_id'// site_url('region_change/select_children/parent_id')?>'+'/'+$('#province_id').val(),
-                                        type: 'GET',
-                                        dataType: 'html',
-                                        success: function(data){
-                                            city_json = eval('('+data+')');
-                                            var city = document.getElementById('city_id');
-                                            city.options.length = 0;
-                                            city.options[0] = new Option('城市', '-11');
-                                            for(var i=0; i<city_json.length; i++){
-                                                var len = city.length;
-                                                city.options[len] = new Option(city_json[i].region_name, city_json[i].region_id);
-                                                if (city.options[len].value == city_selected){
-                                                    city.options[len].selected = true;
-                                                }
-                                            }
-                                            change_district();//重置地区
-                                        }
-                                    });
-                                }
-
-                                change_city();//初始化城市
-
-                                $('#province_id').change(function(){
-                                    change_city();
-                                });
-
-
-                                var change_district = function(){
-                                    $.ajax({
-                                        url: '<?php echo  ITURL.'/admin.php/region_change/select_children/parent_id'//site_url('region_change/select_children/parent_id')?>'+'/'+$('#city_id').val(),
-                                        type: 'GET',
-                                        dataType: 'html',
-                                        success: function(data){
-                                            district_json = eval('('+data+')');
-                                            var district = document.getElementById('district_id');
-                                            district.options.length = 0;
-                                            district.options[0] = new Option('县/区', '-22');
-                                            for(var i=0; i<district_json.length; i++){
-                                                var len = district.length;
-                                                district.options[len] = new Option(district_json[i].region_name, district_json[i].region_id);
-                                                if (district.options[len].value == district_selected){
-                                                    district.options[len].selected = true;
-                                                }
-                                            }
-                                        }
-                                    });
-                                }
-
-                                $('#city_id').change(function(){
-                                    change_district();
-                                });
-
-
-
-                            });
-
-
-                        </script>
-                        <select name="province_id" id="province_id"  style="width:100px;">
-                            <option value="-1" >省份</option>
-                            <?php foreach($provinces as $key => $province): ?>
-                                <option value="<?php echo $province['region_id']; ?>" <?php if($province['region_id']==$province_selected){echo 'selected';}?> ><?php echo $province['region_name']; ?></option>
-                            <?php endforeach; ?>
-
+                        <?php echo form_open('districts/create'); ?>
+                        <label for="inputType" class="control-label">地域类型：</label>
+                        <select name="mySelect1" id="inputType">
+                            <option value="上游" <?php echo  set_select('mySelect1', '1', TRUE); ?> >上游</option>
+                            <option value="上游" <?php echo  set_select('mySelect1', '2'); ?> >上游</option>
+                            <option value="下游" <?php echo  set_select('mySelect1', '3'); ?> >下游</option>
+                            <option value="集散地" <?php echo  set_select('mySelect1', '4'); ?> >集散地</option>
+                            <option value="自定义" <?php echo  set_select('mySelect1', '5'); ?> >自定义</option>
                         </select>
-
-                        <select name="city_id" id="city_id"  style="width:100px;">
-
-                        </select>
-
-                        <select name="district_id" id="district_id" style="width:100px;">
-                            <option value=""></option>
-                        </select>
-
+                        <div class="control-group">
+                            <label for="inputDistrict" class="control-label">地址：</label>
+                            <span id="areaContainer"></span>
+                            <p/>
+                        </div>
+                        <div class="control-group">
+                            <label for="inputDescription" class="control-label">详细备注：</label>
+                            <input type="text" placeholder="备注信息..." class="form-control" name="description"
+                                   id="inputDescription">
+                            <p class="help-block">请输入详细备注</p>
+                        </div>
+                        <input type="text" name="districtID" id="districtID" style="display:none;">
+                        <input type="text" name="districtStr" id="districtStr" style="display:none;">
+                        <button type="submit"  id="getValueBtn"  name="submit" class="btn btn-default pull-right">创建</button>
+                        </form>
 
                     </div>
                 </div>

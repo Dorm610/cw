@@ -41,21 +41,17 @@ class CDistricts extends CI_Controller
         $this->form_validation->reset_validation();
         $this->form_validation->set_rules('province','Province','required');
 
-        //TODO: rebuild this code which copied from MClients.
 
         if ($this->form_validation->run() === false){
             //验证不通过，重新载入
-            $this->load->view('header',$data);
-            $this->load->view('districts/create');
-            $this->load->view('footer',$data);
+            $this->load->view('districts/create',$data);
+            $this->load->view('districts/areaEnd',$data);
         }else{
-            $descri = $this->mDistricts->input->post('descri');
-            if (!empty($descri)&&$this->mDistricts->existDisticts($descri))
+            $districtID = $this->mDistricts->input->post('districtID');
+            if (!empty($districtID)&&$this->mDistricts->existDistricts($districtID))
             {
-                $data['exist'] = 'create_exist';
-                $this->load->view('header', $data);
-                $this->load->view('districts/exist', $data);
-                $this->load->view('footer', $data);
+                $this->load->view('districts/create',$data);
+                $this->load->view('districts/areaEnd',$data);
             }else {
                 $data['success'] = 'create';
                 $this->mDistricts->setDistricts(); //保存数据

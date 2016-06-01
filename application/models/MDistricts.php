@@ -29,18 +29,22 @@ class MDistricts  extends CI_Model
 
         $province=$this->input->post('province');
         $city=$this->input->post('city');
-        $county=$this->input->post('county');
+        $county = $this->input->post('county');
+        $districtStr=$this->input->post('districtStr');
 
-        //区域id与省市县id一致
-        if ($county === "0"){
-            if ($city === "0"){
-                $district_id = $province;
-            }else{
-                $district_id = $city;
-            }
-        }else{
-            $district_id = $county;
+
+        $a = explode(',', $districtStr);
+        if(count($a)>0){
+            $province=$a[0];
         }
+        if(count($a)>1){
+            $city = $a[1];
+        }
+        if(count($a)==3){
+            $county = $a[2];
+        }
+
+        $district_id=$this->input->post('districtID');
 
         $data=array(
             'district_id'=>$district_id,
@@ -48,7 +52,8 @@ class MDistricts  extends CI_Model
             'city'=>$city,
             'county'=>$county,
             'town'=>$this->input->post('town'),
-            'discri'=>$this->input->post('discri'),
+            'type'=>$this->input->post('mySelect1'),
+            'descri'=>$this->input->post('description'),
             'coal_source'=>$this->input->post('coal_source'), // -1：未知，0：否，1：是
             'coal_consume'=>$this->input->post('coal_consume'),
             'port'=>$this->input->post('port'),
@@ -58,6 +63,14 @@ class MDistricts  extends CI_Model
         );
 
         return $this->db->insert('districts',$data);
+    }
+
+    public function existDistricts($districtID){
+        $query = $this->db->get_where('districts',array('district_id'=>$districtID, 'invalid_id'=>'0'));
+        if ($query->num_rows() > 0) {
+            return true;
+        }else
+            return false;
     }
 
 
