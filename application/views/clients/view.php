@@ -28,6 +28,10 @@
                     <td><?php echo $client['id']?></td>
                 </tr>
                 <tr>
+                    <td>信息来源</td>
+                    <td><?php echo $client['source']?></td>
+                </tr>
+                <tr>
                     <td>名称</td>
                     <td><?php echo $client['name']?></td>
                 </tr>
@@ -52,12 +56,28 @@
                     <td><?php echo $client['email']?></td>
                 </tr>
                 <tr>
-                    <td>地址</td>
-                    <td><?php echo $client['address']?></td>
+                    <td>省</td>
+                    <td><?php echo $client['d_province']?></td>
+                </tr>
+                <tr>
+                    <td>市</td>
+                    <td><?php echo $client['d_city']?></td>
+                </tr>
+                <tr>
+                    <td>县</td>
+                    <td><?php echo $client['d_county']?></td>
+                </tr>
+                <tr>
+                    <td>具体区域</td>
+                    <td><?php echo $client['d_town']?></td>
                 </tr>
                 <tr>
                     <td>企业/厂矿</td>
                     <td><?php echo $client['company']?></td>
+                </tr>
+                <tr>
+                    <td>详细地址</td>
+                    <td><?php echo $client['d_descri']?></td>
                 </tr>
                 <tr>
                     <td>职位</td>

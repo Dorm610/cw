@@ -49,6 +49,7 @@
                             <option value="李拥政" <?php echo  set_select('mySelect3', '7'); ?> >李拥政</option>
                             <option value="荀辰龙" <?php echo  set_select('mySelect3', '8'); ?> >荀辰龙</option>
                             <option value="王超一" <?php echo  set_select('mySelect3', '9'); ?> >王超一</option>
+                            <option value="诸欠文" <?php echo  set_select('myselect', '10'); ?> >诸欠文</option>
                         </select>
                         <div class="control-group">
                             <label for="inputName" class="control-label">企业名称：</label>

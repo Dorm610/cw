@@ -19,6 +19,7 @@ class MClients extends CI_Model
        if($id === false){
            $query = $this->db->get_where('clients',array('invalid_id'=>0));
 //           print_r($query->result_array());
+           //TODO:把其他表里的信息放进来
            return $query->result_array();
        }
 
@@ -28,8 +29,37 @@ class MClients extends CI_Model
 
     public function set_clients(){
 
+        $province=$this->input->post('province');
+        $city=$this->input->post('city');
+        $county = $this->input->post('county');
+        $districtStr=$this->input->post('districtStr');
+        $a = explode(',', $districtStr);
+        if(count($a)>0){
+            $province=$a[0];
+        }
+        if(count($a)>1){
+            $city = $a[1];
+        }
+        if(count($a)==3){
+            $county = $a[2];
+        }
+        $district_id=$this->input->post('districtID');
+        //TODO： 用MD5签名生成id
+        $d_data = array(
+            'district_id'=>$district_id,
+            'province'=>$province,
+            'city'=>$city,
+            'county'=>$county,
+            'town'=>$this->input->post('town'),
+            'descri'=>$this->input->post('description'),
+            'invalid_id'=>'0',
+        );
+        $this->db->insert('districts',$d_data);
+
+
         $data=array(
             'name'=>$this->input->post('name'),
+            'source'=>$this->input->post('source'),
             'wx_id'=>$this->input->post('wx_id'),
             'wx_name'=>$this->input->post('wx_name'),
             'qq'=>$this->input->post('qq'),

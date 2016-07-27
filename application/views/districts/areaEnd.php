@@ -1,14 +1,5 @@
-</div>
-</div>
-
-<script src="js/jquery-1.11.1.min.js"></script>
-<script src="js/bootstrap.min.js"></script>
 <script type="text/javascript" src="js/jquery-1.4.2.js"></script>
 <script type="text/javascript" src="js/area.js"></script>
-<!--<span id="areaContainer"></span>-->
-<!--<input id="getValueBtn" type="button" value="getValue">-->
-</body>
-</html>
 <script type="text/javascript">
 
     $(function(){
@@ -26,3 +17,13 @@
         });
     });
 </script>
+</div>
+</div>
+
+<script src="js/jquery-1.11.1.min.js"></script>
+<script src="js/bootstrap.min.js"></script>
+
+<!--<span id="areaContainer"></span>-->
+<!--<input id="getValueBtn" type="button" value="getValue">-->
+</body>
+</html>

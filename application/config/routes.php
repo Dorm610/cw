@@ -79,8 +79,10 @@ $route['company/(:any)'] = 'CCompany/view/$1';
 $route['company'] = 'CCompany/search';
 $route['company/delete/(:any)'] = 'CCompany/delete/$1';
 
-$route['default_controller'] = 'Welcome';
+$route['default_controller'] = 'CClients';
 
+$route['WEUI'] = 'CClients/viewForWEUI';
+$route['WEUI/clients'] = 'CClients/viewForWEUI';
 $route['WEUI/clients/create'] = 'CClients/createForWEUI';
 $route['WEUI/clients/import'] = 'CClients/importForWEUI';
 $route['WEUI/clients/search'] = 'CClients/searchForWEUI';
