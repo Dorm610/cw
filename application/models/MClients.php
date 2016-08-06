@@ -87,6 +87,15 @@ class MClients extends CI_Model
             return false;
     }
 
+    public function exist_clients_by_phone($phone){
+        $sql="select * from clients where phone like ? and invalid_id = 0";
+        $query = $this->db->query($sql,array("%".$phone."%"));
+        if ($query->num_rows() > 0) {
+            return true;
+        }else
+            return false;
+    }
+
     public function getClient_wx($wx_id){
         $query = $this->db->get_where('clients',array('wx_id'=>$wx_id, 'invalid_id'=>0));
         return $query->row_array();
@@ -136,11 +145,11 @@ class MClients extends CI_Model
         if (sizeof($sheetData) > 0)
         {
             foreach ($sheetData as $row) {
-                $wx_id = $row['B'];
-                if ($wx_id == null || $wx_id == ""){
+                $phone = $row['D'];
+                if ($phone == null || $phone == ""){
                     continue;
                 }
-                if ($this->exist_clients($wx_id)){
+                if ($this->exist_clients_by_phone($phone)){
                     $temp0=array(
                         'name'=>$row['A'],
                         'wx_id'=>$row['B'],
@@ -172,6 +181,8 @@ class MClients extends CI_Model
                     'linephone'=>$row['J'],
                     'role_id'=>$row['K'],
                     'product_id'=>$row['L'],
+                    'source'=>'网络收集导入',
+                    'recorder'=>'刘星池',
                     'invalid_id'=>'0',
                 );
                 array_push($insertData, $temp1);

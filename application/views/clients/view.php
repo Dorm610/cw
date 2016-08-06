@@ -57,19 +57,19 @@
                 </tr>
                 <tr>
                     <td>省</td>
-                    <td><?php echo $client['d_province']?></td>
+                    <td><?php echo (isset($client['d_province'])?$client['d_province']:"无数据")?></td>
                 </tr>
                 <tr>
                     <td>市</td>
-                    <td><?php echo $client['d_city']?></td>
+                    <td><?php echo (isset($client['d_city'])?$client['d_city']:"无数据")?></td>
                 </tr>
                 <tr>
                     <td>县</td>
-                    <td><?php echo $client['d_county']?></td>
+                    <td><?php echo (isset($client['d_county'])?$client['d_county']:"无数据")?></td>
                 </tr>
                 <tr>
                     <td>具体区域</td>
-                    <td><?php echo $client['d_town']?></td>
+                    <td><?php echo (isset($client['d_town'])?$client['d_town']:"无数据")?></td>
                 </tr>
                 <tr>
                     <td>企业/厂矿</td>
@@ -77,7 +77,7 @@
                 </tr>
                 <tr>
                     <td>详细地址</td>
-                    <td><?php echo $client['d_descri']?></td>
+                    <td><?php echo (isset($client['d_descri'])?$client['d_descri']:"无数据")?></td>
                 </tr>
                 <tr>
                     <td>职位</td>
