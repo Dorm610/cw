@@ -69,9 +69,10 @@ $route['clients'] = 'CClients';
 
 $route['messages/create'] = 'CMessages/create';
 $route['messages/search'] = 'CMessages/search';
-$route['messages/(:any)'] = 'CMessages/view/$1';
 $route['messages'] = 'CMessages/search';
 $route['messages/delete/(:any)'] = 'CMessages/delete/$1';
+$route['messages/import'] = 'CMessages/import';
+$route['messages/(:any)'] = 'CMessages/view/$1'; //这个必须放最后，否则会覆盖前面的
 
 $route['company/create'] = 'CCompany/create';
 $route['company/search'] = 'CCompany/search';

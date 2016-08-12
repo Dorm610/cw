@@ -304,4 +304,47 @@ class CMessages extends CI_Controller
             $this->load->view('WEUI/messages/success', $data);
         }
     }
+
+
+    public function import(){
+        $this->load->helper('form');
+        $this->load->library('form_validation');
+        $data['title']='导入信息';
+        $data['base_url']=base_url();
+        // 为表单设置验证规则，如果不填，数据库值为''，而不是NULL
+        $this->form_validation->reset_validation();
+        $this->form_validation->set_rules('filename','FileName','required');
+
+        $config['upload_path']      = './upload/';
+        $config['allowed_types']    = 'xlsx|xls';
+        $config['max_size']     = 2048;
+        $config['file_name']   = 'message.xls';
+        $config['overwrite']   = TRUE;
+
+        $this->load->library('upload', $config);
+
+        if ( ! $this->upload->do_upload('filename'))
+        {
+            $error = array('error' => $this->upload->display_errors());
+
+            $this->load->view('header',$data);
+            $this->load->view('messages/import', $error);
+            $this->load->view('footer',$data);
+        }
+        else
+        {
+            $result = array('upload_data' => $this->upload->data());
+            $data['result'] = $result;
+            if ($this->mMessages->importMessages()) {
+                $data['success'] = 'import';
+            }else {
+                $data['success'] = 'import_fail';
+            }
+            $this->load->view('header', $data);
+            $this->load->view('messages/success', $data); //跳转页面
+            $this->load->view('footer', $data);
+        }
+
+    }
+
 }

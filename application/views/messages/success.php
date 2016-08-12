@@ -76,6 +76,32 @@
                         </div>
                     </div>
                 </div>
+            <?php } else if ($success == 'import') {?>
+                <div class="col-md-6">
+                    <div class="panel panel-primary">
+                        <div class="panel-heading">
+                            <h3 class="panel-title">批量导入</h3>
+                        </div>
+                        <div class="panel-body">
+                            <div class="alert alert-success" role="alert">
+                                <strong>导入</strong>业务成功!<a href="<?php echo site_url('messages/import'); ?>" class="pull-right">继续导入</a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            <?php } else if ($success == 'import_fail') {?>
+                <div class="col-md-6">
+                    <div class="panel panel-primary">
+                        <div class="panel-heading">
+                            <h3 class="panel-title">批量导入</h3>
+                        </div>
+                        <div class="panel-body">
+                            <div class="alert alert-warning" role="alert">
+                                <strong>导入</strong>业务失败!<a href="<?php echo site_url('messages/import'); ?>" class="pull-right">重新导入</a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
             <?php } ?>
         </div>
 <!--        <!-- 模态弹出窗内容 -->
