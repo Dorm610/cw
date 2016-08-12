@@ -88,29 +88,40 @@ class MMessages extends CI_Model
         $sheetData = $objPHPExcel->getActiveSheet()->toArray(null,true,true,true);
 
         $insertData = array();
-        $updateData = array();
+//        $updateData = array(); // 没有更新，更新见CClients里的处理
         if (sizeof($sheetData) > 0)
         {
             foreach ($sheetData as $row) {
                 $content = $row['A'];
                 $publish_time=$row['B'];
                 $category=$row['C'];
-                $titleStr = $publish_time.'_'.$category."_".substr($content,0,20);
+                $mode = '/([0-9]{11})|(\+86[0-9]{11})/'; //正则，必须写在反斜杠里面
+                $res=preg_match($mode,$content,$match);
+                $origin="未知";
+                if($match){
+                    $origin=$match[0];
+                }
+                $content = preg_replace("/【[^】]+】/", "", $content); //删掉所有【】以及其中的内容
                 if ($content == null || $content == ""){
                     continue;
                 }
+                $titleStr = substr($publish_time,8,10).'日'.$category."：".substr($content,0,40);
                 $temp1=array(
                     'title'=>$titleStr,
                     'content'=>$content,
                     'publish_time'=>$publish_time,
                     'category'=>$category,
+                    'level'=>'1',
                     'valid_time'=>'0',
+                    'via_type'=>'1',
                     'times_number'=>'1',
-                    'origin'=>'微信',
+                    'status'=>'1',
+                    'origin'=>$origin,
                     'recorder'=>'高磊',
                     'invalid_id'=>'0',
                     'remark'=>$category,
                     'type'=>'plain',
+                    'owner'=>$origin,
                 );
 //                $time = strtotime("2010-09-08");
 //                echo date("Y-m-d H:i:s",$time);
